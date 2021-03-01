@@ -1,4 +1,6 @@
 import "./App.css";
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
 
 const fakeProducts = require("./mocks/data/products.json");
 
@@ -13,7 +15,12 @@ const data = {
 };
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Header logo={data.logo} />
+      <Hero title={data.title} cover={data.cover} description={data.description} />
+    </>
+  )
 }
 
 export default App;
