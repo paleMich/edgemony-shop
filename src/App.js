@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
+import Main from "./components/Main/Main";
 
 const fakeProducts = require("./mocks/data/products.json");
 
@@ -19,6 +20,7 @@ function App() {
     <>
       <Header logo={data.logo} />
       <Hero title={data.title} cover={data.cover} description={data.description} />
+      <Main />
     </>
   )
 }

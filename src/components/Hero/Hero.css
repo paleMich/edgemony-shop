@@ -17,6 +17,7 @@
 .img-wrapper{
   margin: 15px;
   margin-bottom: 0;
+  max-width: 1200px;
 }
 
 .img-wrapper img{
@@ -24,7 +25,38 @@
 }
 
 
-@media (min-width: 768px)/*  and (max-width: 1024px) */ {
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  html{
+    font-size: 1.2rem;
+  }
+
+  .Hero{
+    position: relative;
+    text-align: center;
+  }
+
+  .Hero h1{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+  }
+
+  .Hero h2{
+    display: initial;
+    font-size: 1rem;
+    font-weight: normal;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+  }
+}
+
+@media (min-width: 1024px) {
   
   html{
     font-size: 1.2rem;
