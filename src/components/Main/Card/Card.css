@@ -3,25 +3,71 @@
 }
 
 .Card-wrapper{
-  display: grid inline-grid;
-  grid-template-columns: 270px 270px 270px 270px;
-  grid-template-rows: 220px 220px;
+  margin: 10px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);   
+  grid-template-rows: auto;   
+  gap: 1em;
+  justify-items: center;
+  align-items: center;
 }
 
 .Card{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto 15px;
-  margin-top: 30px;
-  width: 250px;
-  height: 200px;
+  justify-content: space-around;
+  width: 220px;
+  height: 250px;
   border: 1px solid black;
   border-radius: 5px;
 }
 
 .Card img{
   width: 150px;
-  margin-top: 15px;
-  margin-bottom: 35px;
+
 } 
+
+.Card button{
+  margin-bottom: 0px;
+  padding: 4px;
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: rgb(99, 216, 161);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  html{
+    font-size: 1.2rem;
+  }
+
+  .Card-wrapper{
+    margin: 10px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   
+    grid-template-rows: auto;   
+    gap: 1em;
+    justify-items: center;
+    align-items: center;
+  }
+  
+}
+
+@media (min-width: 1024px){
+  html{
+    font-size: 1.2rem;
+  }
+
+  .Card-wrapper{
+    margin: 10px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);   
+    grid-template-rows: auto;   
+    gap: 1em;
+    justify-items: center;
+    align-items: center;
+  }
+}
