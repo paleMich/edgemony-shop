@@ -1,18 +1,16 @@
-
 import './Card.css'
 
-function Card() {
+function Card({products}) {
   return (
-      <ul className='Card-wrapper'>
-        <li className='Card'>
-          <span>Title</span>
-          <img src='https://images.pexels.com/photos/4123897/pexels-photo-4123897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt=''></img>
-          <span>99€</span>
-          <button>Read more</button>
-        </li>
-        
-      </ul>
-    
+      products.map((product) => <li className='Card'>
+        <span>{product.title}</span>
+        <div className='img-container'>
+          <img src={product.image} alt=''></img>
+        </div>
+        <span>{product.price}€</span>
+        <button>Read more</button>
+      </li>
+      )
   )
 }
 

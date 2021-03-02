@@ -20,7 +20,7 @@ function App() {
     <>
       <Header logo={data.logo} />
       <Hero title={data.title} cover={data.cover} description={data.description} />
-      <Main />
+      <Main products={data.products}/>
     </>
   )
 }
