@@ -1,8 +1,10 @@
 .Hero{
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 15px auto;
 }
 
 .Hero h1{
@@ -15,7 +17,6 @@
 }
 
 .img-wrapper{
-  margin: 15px;
   margin-bottom: 0;
   max-width: 1200px;
 }
