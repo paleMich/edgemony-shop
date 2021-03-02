@@ -48,6 +48,41 @@
   background-color: rgb(220, 141, 72);
 }
 
+.modal{
+  position: fixed;
+  background-color: rgba(237, 237, 237, 0.057);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.4s ease;
+  transform: translateX(100%);
+  z-index: 1; 
+  display: flex;
+  justify-content: center;
+}
+
+.modal--is-visible{
+  transform: translateX(0);
+}
+
+.modal-overlay{
+  max-width: 520px;
+  min-width: 300px;
+  height: 500px;
+  position: relative;
+  top: 30%;
+  z-index: 2;
+  background-color: rgba(255, 253, 246, 0.084);
+}
+ 
+.close-modal{
+  color: rgb(164, 2, 2);
+  border-bottom: 1px solid rgb(164, 2, 2);
+  cursor: pointer;
+}
+
+
 @media (min-width: 768px) and (max-width: 1024px) {
   html{
     font-size: 1.1rem;
