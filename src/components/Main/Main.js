@@ -1,11 +1,14 @@
 import Card from './Card/Card'
 
 import './Main.css'
+import './Card/Card.css'
 
-function Main() {
+function Main({products}) {
   return (
     <div className='Main'>
-      <Card />
+      <ul className='Card-wrapper'>
+        <Card products={products}/>
+      </ul>
     </div>
   )
 }
