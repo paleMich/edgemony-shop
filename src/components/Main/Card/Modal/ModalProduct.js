@@ -1,10 +1,12 @@
+import './ModalProduct.css'
+
 function ProductDetails({product}) {
   return (
-    <div>
-      <div className='img-container'>
+    <div className='modal-prod'>
+      <div className='img-modal'>
         <img src={product.image} alt=''></img>
       </div>
-      <span>{product.title}</span>
+      <h4>{product.title}</h4>
       <p>{product.description}</p>
       <span>{product.price}€</span>
     </div>

@@ -6,8 +6,8 @@
 .Card-wrapper{
   max-width: 1200px;
   min-width: 300px;
-  margin: auto;
-  margin-top: 30px;
+  margin: 30px auto;
+  margin-bottom: 0px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(1, 1fr);   
@@ -69,15 +69,21 @@
 
 .modal-overlay{
   max-width: 520px;
-  width: 520px;
-  height: 500px;
+  width: 620px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  top: 30%;
+  top: 25%;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.94);
 }
- 
+
 .close-modal{
+  margin-left: auto;
+  margin-right: 10px;
+  padding-top: 10px;
   color: rgb(164, 2, 2);
   border-bottom: 1px solid rgb(164, 2, 2);
   cursor: pointer;
@@ -86,7 +92,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   html{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .Card-wrapper{
@@ -97,7 +103,7 @@
 
 @media (min-width: 1024px){
   html{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .Card-wrapper{

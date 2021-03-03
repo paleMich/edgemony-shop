@@ -1,0 +1,5 @@
+.Main{
+  border: 1px solid black;
+  width: min-content;
+  max-width: 1200px;
+}
