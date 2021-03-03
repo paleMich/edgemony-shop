@@ -4,9 +4,10 @@
 }
 
 .Card-wrapper{
-  width: 100vw;
-  margin: 10px;
-  margin-top: 20px;
+  max-width: 1200px;
+  min-width: 300px;
+  margin: auto;
+  margin-top: 30px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(1, 1fr);   
@@ -50,7 +51,7 @@
 
 .modal{
   position: fixed;
-  background-color: rgba(237, 237, 237, 0.057);
+  background-color: rgba(205, 205, 205, 0.057);
   top: 0;
   bottom: 0;
   left: 0;
@@ -73,7 +74,7 @@
   position: relative;
   top: 30%;
   z-index: 2;
-  background-color: rgba(255, 253, 246, 0.084);
+  background-color: rgba(255, 255, 255, 0.077);
 }
  
 .close-modal{
@@ -89,14 +90,7 @@
   }
 
   .Card-wrapper{
-    margin: 10px;
-    margin-top: 20px;
-    display: grid;
     grid-template-columns: repeat(3, 1fr);   
-    grid-template-rows: auto;   
-    gap: 1em;
-    justify-items: center;
-    align-items: center;
   }
   
 }
@@ -107,13 +101,7 @@
   }
 
   .Card-wrapper{
-    margin: 10px;
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);   
-    grid-template-rows: auto;   
-    gap: 1em;
-    justify-items: center;
-    align-items: center;
+    grid-template-columns: repeat(4, 1fr);   
+    gap: 2em;  
   }
 }
