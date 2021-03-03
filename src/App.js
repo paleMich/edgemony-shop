@@ -1,7 +1,9 @@
-import "./App.css";
+import { useState } from 'react'
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import Main from "./components/Main/Main";
+
+import "./App.css";
 
 const fakeProducts = require("./mocks/data/products.json");
 
