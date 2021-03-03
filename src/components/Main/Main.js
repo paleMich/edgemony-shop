@@ -2,12 +2,13 @@ import Card from './Card/Card'
 
 import './Main.css'
 import './Card/Card.css'
+import '../element-effect/loading.css'
 
 function Main({products}) {
   return (
     <div className='Main'>
       <ul className='Card-wrapper'>{
-        products.map((product) =>
+        products.map((product) => 
           <Card products={product} key={product.id}/>
         )}
       </ul>
