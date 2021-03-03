@@ -19,7 +19,7 @@ const data = {
 
 function App() {
   const [products, setProducts] = useState([])
-  // const [reload, setReload] = useState(false)
+  const [reload, setReload] = useState(false)
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
 
@@ -30,6 +30,7 @@ function App() {
       .then((response) => response.json())
       .then((products) => {
         setProducts(products);
+        setReload(true)
         setLoading(false);
       })
       .catch(() => {
@@ -48,9 +49,9 @@ function App() {
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         )
       }
-      { isError&&<p /* onClick={() => setReload(reload)}  */className='error'>ALLERT
+      { isError&&<p className='error'>ALLERT
           <p>Please click</p>
-          <span>Here</span>
+          <span onClick={() => setReload(!reload)} >Here</span>
         </p> }
     </>
   )
