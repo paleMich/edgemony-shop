@@ -1,10 +1,12 @@
-function ProductDetails(props) {
+function ProductDetails({product}) {
   return (
     <div>
-      <span>{props.title}</span>
       <div className='img-container'>
-      <img src={props.image} alt=''></img>
+        <img src={product.image} alt=''></img>
       </div>
+      <span>{product.title}</span>
+      <p>{product.description}</p>
+      <span>{product.price}€</span>
     </div>
   )
 }

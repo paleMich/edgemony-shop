@@ -51,7 +51,7 @@
 
 .modal{
   position: fixed;
-  background-color: rgba(205, 205, 205, 0.057);
+  background-color: rgba(205, 205, 205, 0.536);
   top: 0;
   bottom: 0;
   left: 0;
@@ -69,12 +69,12 @@
 
 .modal-overlay{
   max-width: 520px;
-  min-width: 300px;
+  width: 520px;
   height: 500px;
   position: relative;
   top: 30%;
   z-index: 2;
-  background-color: rgba(255, 255, 255, 0.077);
+  background-color: rgba(255, 255, 255, 0.94);
 }
  
 .close-modal{
