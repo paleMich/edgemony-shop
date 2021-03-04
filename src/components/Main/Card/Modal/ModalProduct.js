@@ -1,6 +1,6 @@
 import './ModalProduct.css'
 
-function ProductDetails({product}) {
+function ModalProducts({product, modalIsOpen}) {
   return (
     <div className='modal-prod'>
       <div className='img-modal'>
@@ -8,9 +8,9 @@ function ProductDetails({product}) {
       </div>
       <h4>{product.title}</h4>
       <p>{product.description}</p>
-      <span>{product.price}€</span>
+      <span>Price: {product.price}€</span>
     </div>
   )
 }
 
-export default ProductDetails
+export default ModalProducts

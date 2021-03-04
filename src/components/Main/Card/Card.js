@@ -11,7 +11,7 @@ function Card({products}) {
         <div className='img-container'>
           <img src={products.image} alt=''></img>
         </div>
-        <span>{products.price}€</span>
+        {/* <span>{products.price}€</span> */}
         <button type='button' onClick={() => setModalIsOpen(!modalIsOpen)}>View details</button>
         <div className={`modal ${modalIsOpen ? 'modal--is-visible' : ''}`}>
           <div className='modal-overlay'> 

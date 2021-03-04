@@ -2,7 +2,6 @@ import Card from './Card/Card'
 
 import './Main.css'
 import './Card/Card.css'
-import '../element-effect/loading.css'
 
 function Main({products}) {
   return (

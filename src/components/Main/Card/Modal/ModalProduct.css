@@ -8,7 +8,7 @@
   max-width: 230px;
   max-height: 230px;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 }
 
 .img-modal img{
