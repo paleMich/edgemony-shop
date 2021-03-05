@@ -9,6 +9,7 @@ import './Card/Card.css'
 
 function Main({products}) {
   const [search, setSearch] = useState('')
+  const [isClicked, setIsClicked] = useState(false);
   
   const filtProduct = products.filter(data => {
     return data.title.toLowerCase().includes(search.toLowerCase()) || data.description.toLowerCase().includes(search.toLowerCase())
@@ -24,7 +25,7 @@ function Main({products}) {
         </div>
 
         <div className='Category'>
-          <Category data={products}/>
+          <Category onClick={() => setIsClicked(!isClicked)} data={products}/>
         </div>
       </div>
       <ul className='Card-wrapper'>{

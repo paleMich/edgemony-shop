@@ -37,3 +37,20 @@
   flex-direction: row;
   justify-content: center;
 }
+
+/*  */
+.category-list{
+  border: 1px solid black;
+  width: max-content;
+  height: min-content;
+  margin: auto 4px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  box-shadow: 0px 5px 10px -7px;
+  cursor: pointer;
+}
+
+.category-list:hover{
+  transform: scale(1.05);
+  transition: .3s;
+}
