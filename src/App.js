@@ -27,13 +27,13 @@ function App() {
       .then((products) => {
         setProducts(products);
         setLoading(false);
-        setError('');
+        // setError('');
       })
       .catch(() => {
         setLoading(false);
-        setError(true);
+        // setError(true);
       });         
-  }, []);
+  }, [error]);
 
   return (
     <>
