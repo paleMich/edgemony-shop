@@ -39,7 +39,7 @@
 }
 
 /*  */
-.category-list{
+.category-list .category{
   border: 1px solid black;
   width: max-content;
   height: min-content;
@@ -50,7 +50,16 @@
   cursor: pointer;
 }
 
-.category-list:hover{
+.category{
+  
+}
+
+.category:hover{
   transform: scale(1.05);
   transition: .3s;
+}
+
+.category--is-hidden{
+  color: white;
+  background-color: rgb(146, 169, 208);
 }

@@ -11,17 +11,18 @@ function Main({products}) {
   const [search, setSearch] = useState('')
   const [isClicked, setIsClicked] = useState(false);
   
-  // console.log(products)
-
+  // search filter
   const filtProduct = products.filter(data => {
     return data.title.toLowerCase().includes(search.toLowerCase()) || data.description.toLowerCase().includes(search.toLowerCase())
   })
 
+  // map/filter for a single
   const filtCategory = products.map(value => {
-    return value.category
+    return value.category 
   })
 
-  console.log(filtCategory)
+  const productCategory = filtCategory.filter((v, i, a) => a.indexOf(v) === i);
+  //
 
   return (
     <div className='Main'>
@@ -33,11 +34,13 @@ function Main({products}) {
         </div>
 
         <div className='Category'>{
-          filtCategory.filter((data) =>
-          <span>{data}</span>)
+          productCategory.map((data) => <div className='category-list' >
+              <span onClick={() => setIsClicked(!isClicked)} className={`category ${isClicked ? 'category--is-hidden' : ''}`} >{data}</span>   
+            </div>
+          )
         }
           
-            {/* <Category data={products} onClickChange={setIsClicked}/> */}
+          {/* <Category data={products} onClickChange={setIsClicked}/> */}
           
         </div>
       </div>
