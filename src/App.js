@@ -23,11 +23,17 @@ function App() {
     setLoading(true);
     // setError(false);
     fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
+      .then(async (response) => {
+        const data = await response.json();
+        if (response.status >= 400){
+          throw new Error();
+        }
+        return data;
+      })
       .then((products) => {
         setProducts(products);
         setLoading(false);
-        // setError('');
+
       })
       .catch(() => {
         setLoading(false);
