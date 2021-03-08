@@ -4,6 +4,7 @@ import Hero from "./components/Hero/Hero";
 import Main from "./components/Main/Main";
 import Loading from "./components/element-effect/Loading/Loading";
 import Error from "./components/element-effect/Error/Error";
+import {fetchProducts} from './services/api'
 
 const data = {
   title: "Edgemony Shop",
@@ -18,22 +19,15 @@ function App() {
   const [products, setProducts] = useState([])
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
+  const [cart, setCart] = useState([])
+  
   useEffect(() => {
     setLoading(true);
     // setError(false);
-    fetch('https://fakestoreapi.com/products')
-      .then(async (response) => {
-        const data = await response.json();
-        if (response.status >= 400){
-          throw new Error();
-        }
-        return data;
-      })
-      .then((products) => {
+    Promise.all([fetchProducts()])
+      .then(([products]) => {
         setProducts(products);
         setLoading(false);
-
       })
       .catch(() => {
         setLoading(false);
@@ -43,10 +37,10 @@ function App() {
 
   return (
     <>
-      <Header logo={data.logo} />
+      <Header logo={data.logo} cart={cart}/>
       <Hero title={data.title} cover={data.cover} description={data.description} />
       {!isLoading 
-        ? <Main products={products}/> 
+        ? <Main products={products} items={setCart}/>     /* () => setAddCart(addCart + 1) */
         : <Loading />
       }
       { error&&<Error setError={setError}/> }

@@ -3,7 +3,7 @@ import ModalProducts from './Modal/ModalProduct'
 
 import './Card.css'
 
-function Card({products}) {
+function Card({products, items}) {
   const [ modalIsOpen, setModalIsOpen ] = useState(false)
   return (
       <li className='Card'>
@@ -18,6 +18,7 @@ function Card({products}) {
             <span type='button' onClick={() => setModalIsOpen(!modalIsOpen)} className='close-modal'>close</span>
             <ModalProducts 
               product={products} 
+              items={items}
             />
           </div>
         </div>
