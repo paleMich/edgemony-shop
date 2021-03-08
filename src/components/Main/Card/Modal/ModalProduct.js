@@ -4,7 +4,7 @@ import './ModalProduct.css'
 
 function ModalProducts({product, items}) {
   const [clicked, setClicked] = useState(false)
-  const addToCart = () => items((prevState) => [...prevState, { ...product}])
+  const addToCart = () => items((prevState) => [...prevState, {...product}])
 
   const onClick = () => {
     if(!clicked){

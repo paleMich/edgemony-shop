@@ -43,7 +43,7 @@ function App() {
 
   return (
     <>
-      <Header logo={data.logo} cartProd={cart}/>
+      <Header logo={data.logo} cart={cart}/>
       <Hero title={data.title} cover={data.cover} description={data.description} />
       {!isLoading 
         ? <Main products={products} items={setCart}/>     /* () => setAddCart(addCart + 1) */
