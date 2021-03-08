@@ -7,7 +7,7 @@ import Card from './Card/Card'
 import './Main.css'
 import './Card/Card.css'
 
-function Main({products}) {
+function Main({products, items}) {
   const [search, setSearch] = useState('')
   const [categories, setCategories] = useState([])
   const [isClicked, setIsClicked] = useState(false);
@@ -41,7 +41,11 @@ function Main({products}) {
 
         <div className='Category-list'>{
           productCategory.map((data) => 
-            <button type='button' onClick={() => setIsClicked(!isClicked)} className={`category ${isClicked ? 'category--is-hidden' : ''}`}>{data}</button>
+            <button 
+              type='button' onClick={() => setIsClicked(!isClicked)} 
+              className={`category ${isClicked ? 'category--is-hidden' : ''}`}>
+              {data}
+            </button>
           )
         }
           
@@ -53,7 +57,10 @@ function Main({products}) {
       {/* render products if search ? filtProduct : 'category clicked' */}
       <ul className='Card-wrapper'>{
         filtProduct.map((product) => 
-          <Card products={product} key={product.id}/>
+          <Card 
+            products={product} 
+            items={items} 
+            key={product.id}/>
         )}
       </ul>
     </div>

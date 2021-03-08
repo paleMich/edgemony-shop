@@ -69,8 +69,8 @@
 
 .modal-overlay{
   max-width: 520px;
-  width: 620px;
-  height: 600px;
+  width: 650px;
+  height: 620px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,8 +84,8 @@
   margin-left: auto;
   margin-right: 10px;
   padding-top: 10px;
-  color: rgb(164, 2, 2);
-  border-bottom: 1px solid rgb(164, 2, 2);
+  color: rgb(206, 82, 82);
+  border-bottom: 1px solid rgb(206, 82, 82);
   cursor: pointer;
 }
 

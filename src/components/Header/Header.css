@@ -10,3 +10,15 @@
 .Header img{
   width: 250px;
 }
+
+.section-cart{
+  border: 1px solid navy;
+  width: 200px;
+  height: 35px;
+  margin-left: auto;
+  margin-right: 35px;
+}
+
+.section-cart span{
+  margin: auto 10px;
+}

@@ -18,7 +18,8 @@ function App() {
   const [products, setProducts] = useState([])
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
+  const [cart, setCart] = useState([])
+  
   useEffect(() => {
     setLoading(true);
     // setError(false);
@@ -33,7 +34,6 @@ function App() {
       .then((products) => {
         setProducts(products);
         setLoading(false);
-
       })
       .catch(() => {
         setLoading(false);
@@ -43,10 +43,10 @@ function App() {
 
   return (
     <>
-      <Header logo={data.logo} />
+      <Header logo={data.logo} cartProd={cart}/>
       <Hero title={data.title} cover={data.cover} description={data.description} />
       {!isLoading 
-        ? <Main products={products}/> 
+        ? <Main products={products} items={setCart}/>     /* () => setAddCart(addCart + 1) */
         : <Loading />
       }
       { error&&<Error setError={setError}/> }

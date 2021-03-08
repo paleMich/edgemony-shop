@@ -33,9 +33,22 @@
 }
 
 .modal-prod span{
-  border-top: 1px solid black;
-  width: 80%;
-  margin-top: 20px;
-  padding-top: 5px;
+  width: 100px;
 }
 
+.footer-modal{
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.footer-modal .Cart{
+  width: 120px;
+  padding: 7px;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(206, 82, 82);
+}

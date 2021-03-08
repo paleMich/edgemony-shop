@@ -1,9 +1,13 @@
 import './Header.css'
 
-function Header(props){
+function Header({logo, cartProd}){
+  console.log(cartProd)
   return <header className='Header'>
-    <img src={props.logo} alt="edgemony-shop-logo" />
-    <span>{props.name}</span>
+    <img src={logo} alt="edgemony-shop-logo" />
+    <div className='section-cart'>
+      <span>{cartProd.price}</span>
+      <span>{cartProd.length}</span>
+    </div>
   </header>
 }
 
