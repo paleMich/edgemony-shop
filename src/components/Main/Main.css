@@ -30,7 +30,7 @@
   background-color: rgb(239, 239, 239);
 }
 
-.Category{
+.Category-list{
   width: 700px;
   margin-left: auto;
   display: flex;
@@ -39,7 +39,7 @@
 }
 
 /*  */
-.category-list .category{
+.category{
   border: 1px solid black;
   width: max-content;
   height: min-content;
@@ -50,10 +50,6 @@
   cursor: pointer;
 }
 
-.category{
-  
-}
-
 .category:hover{
   transform: scale(1.05);
   transition: .3s;
@@ -61,5 +57,5 @@
 
 .category--is-hidden{
   color: white;
-  background-color: rgb(146, 169, 208);
+  background-color: rgb(227, 105, 39);
 }

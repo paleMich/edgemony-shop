@@ -9,6 +9,7 @@ import './Card/Card.css'
 
 function Main({products}) {
   const [search, setSearch] = useState('')
+  const [categories, setCategories] = useState([])
   const [isClicked, setIsClicked] = useState(false);
   
   // search filter
@@ -30,13 +31,17 @@ function Main({products}) {
       <div className='section-filter'>
         <div className='SearchBar'>
           <span>Search</span>
-          <input type='text' placeholder='Search a product' onChange={(e) => setSearch(e.target.value)} className='Search'></input>
+          <input 
+            type='text' 
+            value={search}              // add: versione controllata, do un valore ad input che è collegato al nostro stato
+            onChange={(e) => setSearch(e.target.value)} 
+            className='Search' 
+            placeholder='Search a product'></input>
         </div>
 
-        <div className='Category'>{
-          productCategory.map((data) => <div className='category-list' >
-              <span onClick={() => setIsClicked(!isClicked)} className={`category ${isClicked ? 'category--is-hidden' : ''}`} >{data}</span>   
-            </div>
+        <div className='Category-list'>{
+          productCategory.map((data) => 
+            <button type='button' onClick={() => setIsClicked(!isClicked)} className={`category ${isClicked ? 'category--is-hidden' : ''}`}>{data}</button>
           )
         }
           
@@ -45,6 +50,7 @@ function Main({products}) {
         </div>
       </div>
 
+      {/* render products if search ? filtProduct : 'category clicked' */}
       <ul className='Card-wrapper'>{
         filtProduct.map((product) => 
           <Card products={product} key={product.id}/>
