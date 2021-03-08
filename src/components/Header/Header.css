@@ -3,8 +3,7 @@
   margin: 7px;
   display: flex;
   align-items: center;
-  border-radius: 3px;
-  border: 1px solid black;
+  box-shadow: 0px 10px 10px -10px;
 }
 
 .Header img{
@@ -12,13 +11,49 @@
 }
 
 .section-cart{
-  border: 1px solid navy;
   width: 200px;
-  height: 35px;
+  height: 100%;
   margin-left: auto;
   margin-right: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .section-cart span{
   margin: auto 10px;
+}
+
+.price{
+  width: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.Cart{
+  width: 65px;
+  height: fit-content;
+  cursor: pointer;
+  position: relative;
+}
+
+.Cart i{
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+.items-num{
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  color: rgb(255, 255, 255);
+  background-color: rgb(206, 82, 82);
+  z-index: 10;
+
 }

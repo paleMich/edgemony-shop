@@ -4,6 +4,7 @@ import Hero from "./components/Hero/Hero";
 import Main from "./components/Main/Main";
 import Loading from "./components/element-effect/Loading/Loading";
 import Error from "./components/element-effect/Error/Error";
+import {fetchProducts} from './services/api'
 
 const data = {
   title: "Edgemony Shop",
@@ -23,15 +24,8 @@ function App() {
   useEffect(() => {
     setLoading(true);
     // setError(false);
-    fetch('https://fakestoreapi.com/products')
-      .then(async (response) => {
-        const data = await response.json();
-        if (response.status >= 400){
-          throw new Error();
-        }
-        return data;
-      })
-      .then((products) => {
+    Promise.all([fetchProducts()])
+      .then(([products]) => {
         setProducts(products);
         setLoading(false);
       })

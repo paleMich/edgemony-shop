@@ -9,7 +9,6 @@
 .section-filter{
   display: flex;
   flex-direction: row;
-  /* justify-content: space-evenly; */
 }
 
 .SearchBar{
@@ -31,7 +30,7 @@
 }
 
 .Category-list{
-  width: 700px;
+  width: 400px;
   margin-left: auto;
   display: flex;
   flex-direction: row;

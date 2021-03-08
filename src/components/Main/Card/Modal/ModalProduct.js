@@ -4,12 +4,14 @@ import './ModalProduct.css'
 
 function ModalProducts({product, items}) {
   const [clicked, setClicked] = useState(false)
+  const [btnText, setBtnText] = useState('Add to cart')
   const addToCart = () => items((prevState) => [...prevState, {...product}])
 
   const onClick = () => {
     if(!clicked){
       setClicked(true);
       addToCart();
+      setBtnText('In cart')
     }
   }
 
@@ -24,7 +26,7 @@ function ModalProducts({product, items}) {
         <button 
           type='button' 
           onClick={onClick} 
-          className='Cart'>Add to cart
+          className='Cart'>{btnText}
         </button>
         <span>Price: {product.price}€</span>
       </div>

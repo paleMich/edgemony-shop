@@ -46,8 +46,8 @@
 }
 
 .footer-modal .Cart{
-  width: 120px;
-  padding: 7px;
+  width: fit-content;
+  padding: 7px 20px;
   border-radius: 4px;
   color: white;
   background-color: rgb(206, 82, 82);
