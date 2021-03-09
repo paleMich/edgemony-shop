@@ -1,9 +1,16 @@
 .Header{
   height: 60px;
-  margin: 7px;
+  margin: 0px 7px;
   display: flex;
   align-items: center;
   box-shadow: 0px 10px 10px -10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
 }
 
 .Header img{
@@ -30,14 +37,15 @@
   font-weight: 600;
 }
 
-.Cart{
+.cart-icon{
+  margin-left: auto;
   width: 65px;
   height: fit-content;
   cursor: pointer;
   position: relative;
 }
 
-.Cart i{
+.cart-icon i{
   font-size: 1.2rem;
   z-index: 1;
 }

@@ -6,6 +6,7 @@
 
 .img-modal{
   max-width: 230px;
+  min-height: 230px;
   max-height: 230px;
   background-position: center;
   background-size: cover;
@@ -26,7 +27,8 @@
   display: -webkit-box;
   line-height: 1.7;
   -webkit-line-clamp: 4;
-  min-height: 70px;
+  /* min-height: 70px; */
+  max-height: 120px;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -37,6 +39,7 @@
 }
 
 .footer-modal{
+  margin-top: auto;
   width: 300px;
   display: flex;
   flex-direction: row;
