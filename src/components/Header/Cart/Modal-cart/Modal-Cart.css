@@ -26,8 +26,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 20;
-  background-color: rgb(246, 236, 236);
+  z-index: 15;
+  background-color: rgb(252, 233, 205);
   cursor: initial;
 }
 
@@ -58,6 +58,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 20;
 }
 
 .cart-product__img-wrapper{
@@ -89,4 +90,16 @@
 .cart-product__description h4{
   font-size: 0.9rem;
   font-weight: initial;
+}
+
+.modal-cart__footer{
+  border-top: 1px solid black;
+  width: 100%;
+  height: 25px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: end; 
+  font-size: 1.1rem;
+  font-weight: 600;
 }

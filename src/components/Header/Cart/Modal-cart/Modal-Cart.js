@@ -1,12 +1,17 @@
 import './Modal-Cart.css'
 
-function ModalCart({cart, clicked, closeModal}) {
+function ModalCart({cart, onRemove, clicked, closeModal, finalPrice, products}) {
   
+
   return (
     <div className={`modal-cart ${clicked ? 'modal-cart--is-visible' : ''}`}>
       <div className='modal-cart__overlay'>
         <div className='modal-cart__header'>
-          <button onClick={() => closeModal(!clicked)} className='close-modal-cart'>x</button>
+          <button 
+            type='button' 
+            onClick={() => closeModal(!clicked)} 
+            className='close-modal-cart'
+          >x</button>
           <span>Cart</span>
         </div>{
         cart.map((product) => 
@@ -16,11 +21,13 @@ function ModalCart({cart, clicked, closeModal}) {
             </div>
             <div className='cart-product__description'>
               <h4>{product.title}</h4>
-              <span>Qty: 3</span>
+              <span>Qty. 3</span>
               <span>Price: {product.price} €</span>
+              <button type='button' onClick={() => onRemove(!cart)}>Remove</button>
             </div>
           </div>
         )}
+        <p className='modal-cart__footer'>Total price: {finalPrice} €</p>
       </div>
     </div>
   )

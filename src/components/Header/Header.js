@@ -2,10 +2,10 @@ import {Cart} from './Cart/Cart'
 
 import './Header.css'
 
-function Header({logo, cart}){
+function Header({logo, cart, onClose, products}){
   return <header className='Header'>
     <img src={logo} alt="edgemony-shop-logo" />
-    <Cart cart={cart}/>
+    <Cart cart={cart} onClose={onClose} products={products}/>
   </header>
 }
 
