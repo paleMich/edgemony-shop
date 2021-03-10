@@ -35,37 +35,6 @@
   background-color: rgb(220, 141, 72);
 }
 
-.modal{
-  position: fixed;
-  background-color: rgba(205, 205, 205, 0.536);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: 0.4s ease;
-  transform: translateX(100%);
-  z-index: 5; 
-  display: flex;
-  justify-content: center;
-}
-
-.modal--is-visible{
-  transform: translateX(0);
-}
-
-.modal-overlay{
-  max-width: 520px;
-  width: 650px;
-  height: 620px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  top: 25%;
-  z-index: 6;
-  background-color: rgba(255, 255, 255, 0.94);
-}
-
 /* .close-modal{
   margin-left: auto;
   margin-right: 10px;

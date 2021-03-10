@@ -18,16 +18,16 @@ function ModalProduct({
     }
   };
   return (
-    <div className={`ModalProduct ${isOpen ? `isOpen` : ""}`}>
+    <div className={`modal ${isOpen ? `modal--is-visible` : ""}`}>
       <div className="overlay" onClick={closeModal} />
-      <div className="body">
-        <button
+      <div className="modal-body">
+        <span
           onClick={closeModal}
           title="close product modal"
           className="close-modal"
         >
-          ×
-        </button>
+          close
+        </span>
         {!!content ? (
           <div className="content">
             <div className='img-modal'>
@@ -35,14 +35,11 @@ function ModalProduct({
             </div>
             <h4>{content.title}</h4>
             <p>{content.description}</p>
-            <button type="button" className="addToCart" onClick={toggleCart}>
-              {inCart ? "Remove to Cart" : "Add to Cart"}
-            </button>
-            <br />
-            <br />
-            <hr />
-            <div className="price">
-              <small>Price:</small> {content.price}€
+            <div className='footer-modal'>
+              <button type="button" className="add-cart" onClick={toggleCart}>
+                {inCart ? "Remove" : "Add to Cart"}
+              </button>
+              <span>Price: {content.price}€</span>
             </div>
           </div>
         ) : null}
