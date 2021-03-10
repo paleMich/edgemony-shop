@@ -37,10 +37,10 @@ function App() {
 
   return (
     <>
-      <Header logo={data.logo} cart={cart}/>
+      <Header logo={data.logo} cart={cart} onClose={setCart} products={products}/>
       <Hero title={data.title} cover={data.cover} description={data.description} />
       {!isLoading 
-        ? <Main products={products} items={setCart}/>     /* () => setAddCart(addCart + 1) */
+        ? <Main products={products} cart={cart} items={setCart}/>  
         : <Loading />
       }
       { error&&<Error setError={setError}/> }

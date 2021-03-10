@@ -7,7 +7,7 @@ import Card from './Card/Card'
 import './Main.css'
 import './Card/Card.css'
 
-function Main({products, items}) {
+function Main({products, cart, items}) {
   const [search, setSearch] = useState('')
   const [categories, setCategories] = useState([])
   const [isClicked, setIsClicked] = useState(false);
@@ -59,6 +59,7 @@ function Main({products, items}) {
         filtProduct.map((product) => 
           <Card 
             products={product} 
+            cart={cart}
             items={items} 
             key={product.id}/>
         )}
