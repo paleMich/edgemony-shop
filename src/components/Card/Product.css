@@ -80,14 +80,14 @@
   background-color: rgba(255, 255, 255, 0.94);
 }
 
-.close-modal{
+/* .close-modal{
   margin-left: auto;
   margin-right: 10px;
   padding-top: 10px;
   color: rgb(206, 82, 82);
   border-bottom: 1px solid rgb(206, 82, 82);
   cursor: pointer;
-}
+} */
 
 
 @media (min-width: 768px) and (max-width: 1024px) {

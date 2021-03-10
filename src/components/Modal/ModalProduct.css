@@ -3,6 +3,14 @@
   flex-direction: column;
   align-items: center;
 }
+.close-modal{
+  margin-left: auto;
+  margin-right: 10px;
+  padding-top: 10px;
+  color: rgb(206, 82, 82);
+  border-bottom: 1px solid rgb(206, 82, 82);
+  cursor: pointer;
+}
 
 .img-modal{
   max-width: 230px;

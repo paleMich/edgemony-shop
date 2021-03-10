@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
+
 import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import Main from "./components/Main/Main";
-import Loading from "./components/element-effect/Loading/Loading";
-import Error from "./components/element-effect/Error/Error";
-import {fetchProducts} from './services/api'
+import Hero from "./components//Hero/Hero";
+import Loader from "./components/Loader/Loader";
+import ProductList from "./components/Product-list/ProductList";
+import ProductModal from "./components/Modal/ModalProduct";
+import ErrorBanner from "./components/Error/Error";
+import CartModal from "./components/Modal-cart/ModalCart";
+import { fetchProducts, fetchCatogories } from "./services/api";
 
 const data = {
   title: "Edgemony Shop",
@@ -16,36 +19,132 @@ const data = {
 };
 
 function App() {
-  const [products, setProducts] = useState([])
-  const [isLoading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [cart, setCart] = useState([])
-  
+  // Modal logic
+  const [productInModal, setProductInModal] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isCartOpen, setCartOpen] = useState(false);
+
+  function openProductModal(product) {
+    console.log(product);
+    setProductInModal(product);
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+    setTimeout(() => {
+      setProductInModal(null);
+    }, 500);
+  }
+
   useEffect(() => {
-    setLoading(true);
-    // setError(false);
-    Promise.all([fetchProducts()])
-      .then(([products]) => {
+    if (modalIsOpen || isCartOpen) {
+      document.body.style.height = `100vh`;
+      document.body.style.overflow = `hidden`;
+    } else {
+      document.body.style.height = ``;
+      document.body.style.overflow = ``;
+    }
+  }, [modalIsOpen, isCartOpen]);
+
+  // API data logic
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
+  const [retry, setRetry] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setApiError("");
+    Promise.all([fetchProducts(), fetchCatogories()])
+      .then(([products, categories]) => {
         setProducts(products);
-        setLoading(false);
+        setCategories(categories);
       })
-      .catch(() => {
-        setLoading(false);
-        // setError(true);
-      });         
-  }, [error]);
+      .catch((err) => setApiError(err.message))
+      .finally(() => setIsLoading(false));
+  }, [retry]);
+
+  // Cart Logic
+  const [cart, setCart] = useState([]);
+  const cartProducts = cart.map((cartItem) => {
+    const { price, image, title, id } = products.find(
+      (p) => p.id === cartItem.id
+    );
+    return { price, image, title, id, quantity: cartItem.quantity };
+  });
+  const cartTotal = cartProducts.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+  function isInCart(product) {
+    return product != null && cart.find((p) => p.id === product.id) != null;
+  }
+  function addToCart(productId) {
+    setCart([...cart, { id: productId, quantity: 1 }]);
+  }
+  function removeFromCart(productId) {
+    setCart(cart.filter((product) => product.id !== productId));
+  }
+  function setProductQuantity(productId, quantity) {
+    setCart(
+      cart.map((product) =>
+        product.id === productId ? { ...product, quantity } : product
+      )
+    );
+  }
 
   return (
-    <>
-      <Header logo={data.logo} cart={cart} onClose={setCart} products={products}/>
-      <Hero title={data.title} cover={data.cover} description={data.description} />
-      {!isLoading 
-        ? <Main products={products} cart={cart} items={setCart}/>  
-        : <Loading />
-      }
-      { error&&<Error setError={setError}/> }
-    </>
-  )
+    <div className="App">
+      <Header
+        logo={data.logo}
+        title={data.title}
+        cartTotal={cartTotal}
+        cartSize={cart.length}
+        products={products}
+        onCartClick={() => setCartOpen(true)}
+      />
+      <Hero
+        title={data.title}
+        description={data.description}
+        cover={data.cover}
+      />
+      <main>
+        {isLoading ? (
+          <Loader />
+        ) : apiError ? (
+          <ErrorBanner
+            message={apiError}
+            close={() => setApiError("")}
+            retry={() => setRetry(!retry)}
+          />
+        ) : (
+          <ProductList
+            products={products}
+            categories={categories}
+            openProductModal={openProductModal}
+          />
+        )}
+      </main>
+      <CartModal
+        products={cartProducts}
+        isOpen={isCartOpen}
+        close={() => setCartOpen(false)}
+        totalPrice={cartTotal}
+        removeFromCart={removeFromCart}
+        setProductQuantity={setProductQuantity}
+      />
+      <ProductModal
+        isOpen={modalIsOpen}
+        content={productInModal}
+        closeModal={closeModal}
+        inCart={isInCart(productInModal)}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+      />
+    </div>
+  );
 }
 
 export default App;
