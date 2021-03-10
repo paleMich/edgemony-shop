@@ -4,18 +4,13 @@ import "./Product.css";
 
 function Product({ product, openProductModal }) {
   return (
-    <div className='Card-wrapper'>
       <article className="Card">
         <div className='img-container'>
           <img src={product.image} alt={product.title} />
         </div>
-        <div className="content">
-          <h1>{product.title}</h1>
-          <p>Price: {product.price}€</p>
-        </div>
+        <span>{product.title}</span>
         <button onClick={openProductModal}>View details</button>
       </article>
-    </div>
   );
 }
 

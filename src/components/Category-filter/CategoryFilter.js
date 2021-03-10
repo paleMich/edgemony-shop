@@ -1,8 +1,10 @@
 import { PropTypes } from "prop-types";
 
+import './CategoryFilter.css'
+
 function CategoryFilter({ name, selectedCategories, onSelectCategory }) {
   const isSelected = selectedCategories.includes(name);
-  const className = "CategoryFilter" + (isSelected ? " selected" : "");
+  const className = "category" + (isSelected ? "category--is-hidden" : "");
   const toggleCategory = () => {
     const newSelected = isSelected
       ? selectedCategories.filter((category) => category !== name)

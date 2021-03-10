@@ -4,10 +4,12 @@ import "./Search.css";
 
 function Search({ onSearch }) {
   return (
-    <div className="Search">
+    <div className="SearchBar">
+      <span>Search</span>
       <input
         type="search"
         placeholder="Search a product.."
+        className="Search"
         onChange={(event) => onSearch(event.target.value)}
       />
     </div>

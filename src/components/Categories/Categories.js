@@ -9,7 +9,7 @@ function CategoriesFilter({
   onSelectCategory,
 }) {
   return (
-    <div className="CategoriesFilter">
+    <div className="Category-list">
       {categories.map((category) => (
         <CategoryFilter
           key={category}

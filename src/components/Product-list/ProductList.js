@@ -19,8 +19,8 @@ function ProductList({ products, categories, openProductModal }) {
   );
 
   return (
-    <div className="ProductList">
-      <div className="ProductList__filters">
+    <div className="centerSection">
+      <div className="section-filter">
         <Search onSearch={setSearchTerm} />
         <CategoriesFilter
           categories={categories}
@@ -28,7 +28,7 @@ function ProductList({ products, categories, openProductModal }) {
           onSelectCategory={setSelectedCategories}
         />
       </div>
-      <div className="ProductList__products">
+      <div className="Card-wrapper">
         {filteredProducts.map((product) => (
           <Product
             product={product}
