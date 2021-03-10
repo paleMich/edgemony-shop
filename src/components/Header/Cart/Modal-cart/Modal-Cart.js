@@ -4,7 +4,7 @@ function ModalCart({cart, onRemove, clicked, closeModal, finalPrice, products}) 
   
 
   return (
-    <div className={`modal-cart ${clicked ? 'modal-cart--is-visible' : ''}`}>
+    <div className={`modal ${clicked ? 'modal--is-visible' : ''}`}>
       <div className='modal-cart__overlay'>
         <div className='modal-cart__header'>
           <button 
@@ -21,7 +21,7 @@ function ModalCart({cart, onRemove, clicked, closeModal, finalPrice, products}) 
             </div>
             <div className='cart-product__description'>
               <h4>{product.title}</h4>
-              <span>Qty. 3</span>
+              <span>Qty. 1</span>
               <span>Price: {product.price} €</span>
               <button type='button' onClick={() => onRemove(!cart)}>Remove</button>
             </div>

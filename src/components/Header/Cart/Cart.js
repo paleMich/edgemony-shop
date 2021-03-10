@@ -7,8 +7,7 @@ export function Cart({cart, onClose, products}){
   const [clickCart, setClickCart] = useState(false)
   
   const finalPrice = cart.reduce((partialAdd, cartItem) => {
-    const product = products.find(product => product.id === cartItem.id)
-    return partialAdd + product.price}, 0).toFixed(2)
+    return partialAdd + cartItem.price}, 0).toFixed(2)
 
   return ( 
     <div className='section-cart'>
