@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import { formatPrice } from "../../services/utils";
 
-// import "./CartProduct.css";
+import "./CartProduct.css";
 
 function CartProduct({ product, removeFromCart, setProductQuantity }) {
   const { image, title, price, quantity, id } = product;
@@ -9,20 +9,24 @@ function CartProduct({ product, removeFromCart, setProductQuantity }) {
   const decrement = () => setProductQuantity(id, quantity - 1);
   const remove = () => removeFromCart(id);
   return (
-    <div className="CartProduct">
-      <img className="CartProduct__image" src={image} alt={title} />
-      <h3 className="CartProduct__title">{title}</h3>
-      <div className="CartProduct__quantity">
-        <button onClick={decrement} disabled={quantity === 1}>
-          -
-        </button>
-        <span>{quantity}</span>
-        <button onClick={increment}>+</button>
+    <div className="modal-cart__product">
+      <div>
+        <img className="cart-product__img-wrapper" src={image} alt={title} />
       </div>
-      <p className="CartProduct__price">{formatPrice(price)}</p>
-      <button className="CartProduct__remove" onClick={remove}>
-        Remove
-      </button>
+      <div className='cart-product__description'>
+        <h4>{title}</h4>
+        <div className="CartProduct__quantity">
+          <button onClick={decrement} disabled={quantity === 1}>
+            -
+          </button>
+          <span>{quantity}</span>
+          <button onClick={increment}>+</button>
+          <span className="CartProduct__price">{formatPrice(price)}</span>
+        </div>
+        <button className="CartProduct__remove" onClick={remove}>
+          Remove
+        </button>
+      </div>
     </div>
   );
 }

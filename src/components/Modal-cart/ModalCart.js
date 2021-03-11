@@ -12,16 +12,16 @@ function ModalCart({
   setProductQuantity,
 }) {
   return (
-    <div className={`ModalCart ${isOpen ? `is-open` : ""}`}>
-      <div className="" onClick={close}></div>
-      <div className="">      {/* modal-cart__overlay */}
+    <div className={`modal ${isOpen ? `modal--is-visible` : ""}`}>
+      <div className="overlay" onClick={close}></div>
+      <div className="modal-cart">  
         <header className='modal-cart__header'>
           <button className="close-modal-cart" onClick={close}>
             x
           </button>
-          <h2 className="ModalCart__title">Cart</h2>
+          <h2>Cart</h2>
         </header>
-        <div className="modal-cart__product">
+        <div className=""> {/* modal-cart__product */}
           {products.length > 0 ? (
             products.map((product) => (
               <CartProduct

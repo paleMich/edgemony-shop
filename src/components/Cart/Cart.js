@@ -7,10 +7,10 @@ function HeaderCart({ cartTotal, cartSize, onCartClick }) {
   return (
     <div className="section-cart">
       {!!cartSize && <span className="price">{formatPrice(cartTotal)}</span>}
-      <span className="cart-icon" onClick={onCartClick}>
+      <div className="cart-icon" onClick={onCartClick}>
         <i className="fas fa-shopping-cart"></i>
         {!!cartSize && <span className="items-num">{cartSize}</span>}
-      </span>
+      </div>
     </div>
   );
 }
