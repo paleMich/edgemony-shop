@@ -12,3 +12,7 @@ async function callAPI(endpoint) {
 export async function fetchProducts() {
   return callAPI("products");
 }
+
+export async function fetchCatogories() {
+  return callAPI("products/categories");
+}

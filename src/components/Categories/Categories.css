@@ -1,0 +1,7 @@
+.Category-list{
+  width: 400px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

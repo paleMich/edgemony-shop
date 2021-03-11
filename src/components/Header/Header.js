@@ -1,12 +1,29 @@
-import {Cart} from './Cart/Cart'
+import PropTypes from "prop-types";
 
-import './Header.css'
+import Cart from "../Cart/Cart";
+import "./Header.css";
 
-function Header({logo, cart, onClose, products}){
-  return <header className='Header'>
-    <img src={logo} alt="edgemony-shop-logo" />
-    <Cart cart={cart} onClose={onClose} products={products}/>
-  </header>
+function Header({ logo, title, cartTotal, cartSize, products, onCartClick }) {
+  return (
+    <header className="Header">
+      <img src={logo} alt={title} />
+      <Cart
+        cartTotal={cartTotal}
+        cartSize={cartSize}
+        products={products}
+        onCartClick={onCartClick}
+      />
+    </header>
+  );
 }
 
-export default Header
+Header.propTypes = {
+  logo: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  cartTotal: PropTypes.number.isRequired,
+  cartSize: PropTypes.number.isRequired,
+  products: PropTypes.array.isRequired,
+  onCartClick: PropTypes.func.isRequired,
+};
+
+export default Header;

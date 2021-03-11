@@ -3,20 +3,6 @@
   text-align: center;
 }
 
-.Card-wrapper{
-  max-width: 1200px;
-  min-width: 300px;
-  margin: 30px auto;
-  margin-bottom: 0px;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);   
-  grid-template-rows: auto;   
-  gap: 1em;
-  justify-items: center;
-  align-items: center;
-}
-
 .Card{
   display: flex;
   flex-direction: column;
@@ -49,45 +35,14 @@
   background-color: rgb(220, 141, 72);
 }
 
-.modal{
-  position: fixed;
-  background-color: rgba(205, 205, 205, 0.536);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: 0.4s ease;
-  transform: translateX(100%);
-  z-index: 5; 
-  display: flex;
-  justify-content: center;
-}
-
-.modal--is-visible{
-  transform: translateX(0);
-}
-
-.modal-overlay{
-  max-width: 520px;
-  width: 650px;
-  height: 620px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  top: 25%;
-  z-index: 6;
-  background-color: rgba(255, 255, 255, 0.94);
-}
-
-.close-modal{
+/* .close-modal{
   margin-left: auto;
   margin-right: 10px;
   padding-top: 10px;
   color: rgb(206, 82, 82);
   border-bottom: 1px solid rgb(206, 82, 82);
   cursor: pointer;
-}
+} */
 
 
 @media (min-width: 768px) and (max-width: 1024px) {

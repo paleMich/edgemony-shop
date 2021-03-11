@@ -1,4 +1,4 @@
-.modal-cart__overlay{
+.modal-cart{
   max-width: 520px;
   width: 530px;
   height: 100%;
@@ -32,7 +32,7 @@
   /* margin-left: 10px; */
   cursor: pointer;
 }
-
+/* 
 .modal-cart__product{
   width: max-content;
   margin: 10px auto;
@@ -90,4 +90,9 @@
   text-align: end; 
   font-size: 1.1rem;
   font-weight: 600;
+} */
+
+.ModalCart__content__empty {
+  text-align: center;
+  margin-top: 40px;
 }
