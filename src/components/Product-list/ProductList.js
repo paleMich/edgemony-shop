@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
-import Product from "../Card/Product";
-import Search from "../Search-product/Search";
+
+import SearchBar from "../SearchBar"
+import Card from "../CardProduct"
+import CategoriesFilter from "../Categories/Categories";
 
 import "./ProductList.css";
-import CategoriesFilter from "../Categories/Categories";
 
 function ProductList({ products, categories, openProductModal }) {
   const [searchTerm, setSearchTerm] = useState();
@@ -21,7 +22,10 @@ function ProductList({ products, categories, openProductModal }) {
   return (
     <div className="centerSection">
       <div className="section-filter">
-        <Search onSearch={setSearchTerm} />
+        <SearchBar 
+          placeholder={'Search a product..'}
+          onSearch={setSearchTerm} 
+        />
         <CategoriesFilter
           categories={categories}
           selectedCategories={selectedCategories}
@@ -30,7 +34,7 @@ function ProductList({ products, categories, openProductModal }) {
       </div>
       <div className="Card-wrapper">
         {filteredProducts.map((product) => (
-          <Product
+          <Card
             product={product}
             key={product.id}
             openProductModal={() => openProductModal(product)}

@@ -2,6 +2,7 @@ import "./ModalCart.css";
 import { PropTypes } from "prop-types";
 import CartProduct from "../Cart-product/CartProduct";
 import { formatPrice } from "../../services/utils";
+import Modal from "../Modal"
 
 function ModalCart({
   products,

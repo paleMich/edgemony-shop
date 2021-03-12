@@ -7,6 +7,7 @@ import ProductList from "./components/Product-list/ProductList";
 import ProductModal from "./components/Modal/ModalProduct";
 import ErrorBanner from "./components/Error/Error";
 import CartModal from "./components/Modal-cart/ModalCart";
+// import Sidebar from "./components/Sidebar"
 import { fetchProducts, fetchCatogories } from "./services/api";
 
 const data = {
@@ -25,7 +26,6 @@ function App() {
   const [isCartOpen, setCartOpen] = useState(false);
 
   function openProductModal(product) {
-    console.log(product);
     setProductInModal(product);
     setModalIsOpen(true);
   }
