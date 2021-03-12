@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 
-import "./Error.css";
+import "./styles.css";
 
 function ErrorBanner({ message, retry, close }) {
   return (

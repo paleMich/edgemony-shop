@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { formatPrice } from "../../services/utils";
-import "./Cart.css";
+import "./styles.css";
 
 function HeaderCart({ cartTotal, cartSize, onCartClick }) {
   return (

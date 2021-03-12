@@ -10,22 +10,22 @@
   z-index: 5; 
   display: flex;
   justify-content: center;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(222,222,222,0.85);
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
 }
 
 .modal--is-visible{
   transform: translateX(0);
-}
-
-.modal .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(222,222,222,0.85);
-  cursor: pointer;
-  transition: opacity 0.5s ease-in-out;
-  opacity: 0;
 }
 
 .modal-body{
@@ -62,32 +62,35 @@
   max-height: 230px;
   background-position: center;
   background-size: cover;
+  
+  img{
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.img-modal img{
-  width: 100%;
-  height: 100%;
-}
-
-.content h4{
+.content{
+  
+  h4{
   margin: 15px auto;
-}
-
-.content p{
-  padding: 15px;
-  text-align: start;
-  display: -webkit-box;
-  line-height: 1.7;
-  -webkit-line-clamp: 4;
-  /* min-height: 70px; */
-  max-height: 120px;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.content span{
-  width: 100px;
+  }
+  
+  p{
+    padding: 15px;
+    text-align: start;
+    display: -webkit-box;
+    line-height: 1.7;
+    -webkit-line-clamp: 4;
+    /* min-height: 70px; */
+    max-height: 120px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  span{
+    width: 100px;
+  }
 }
 
 .footer-modal{
@@ -98,12 +101,13 @@
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid black;
+  
+  .add-cart{
+    width: fit-content;
+    padding: 7px 20px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(206, 82, 82);
+  }
 }
 
-.footer-modal .add-cart{
-  width: fit-content;
-  padding: 7px 20px;
-  border-radius: 4px;
-  color: white;
-  background-color: rgb(206, 82, 82);
-}

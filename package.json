@@ -38,7 +38,8 @@
     ]
   },
   "devDependencies": {
-    "msw": "^0.27.0"
+    "msw": "^0.27.0",
+    "sass": "^1.32.8"
   },
   "msw": {
     "workerDirectory": "public"

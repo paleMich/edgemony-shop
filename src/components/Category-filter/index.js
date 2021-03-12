@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 
-import './CategoryFilter.css'
+import './styles.css'
 
 function CategoryFilter({ name, selectedCategories, onSelectCategory }) {
   const isSelected = selectedCategories.includes(name);

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-import Header from "./components/Header/Header";
-import Hero from "./components//Hero/Hero";
-import Loader from "./components/Loader/Loader";
-import ProductList from "./components/Product-list/ProductList";
-import ProductModal from "./components/Modal/ModalProduct";
-import ErrorBanner from "./components/Error/Error";
-import CartModal from "./components/Modal-cart/ModalCart";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Loader from "./components/Loader";
+import ErrorBanner from "./components/Error";
+import ProductList from "./components/Product-list";
+import ProductModal from "./components/Modal/";
+import CartModal from "./components/Modal-cart";
 // import Sidebar from "./components/Sidebar"
 import { fetchProducts, fetchCatogories } from "./services/api";
 

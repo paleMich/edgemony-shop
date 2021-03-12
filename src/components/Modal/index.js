@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 
-import "./ModalProduct.css";
+import "./styles.scss";
 
 function ModalProduct({
   content,

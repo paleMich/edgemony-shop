@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import { formatPrice } from "../../services/utils";
 
-import "./CartProduct.css";
+import "./styles.css";
 
 function CartProduct({ product, removeFromCart, setProductQuantity }) {
   const { image, title, price, quantity, id } = product;

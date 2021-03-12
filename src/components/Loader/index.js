@@ -1,4 +1,4 @@
-import './Loader.css'    
+import './styles.css'    
 
 function Loading() {
   return <div className="lds-ring"><div></div><div></div><div></div><div></div></div>

@@ -3,9 +3,9 @@ import { PropTypes } from "prop-types";
 
 import SearchBar from "../SearchBar"
 import Card from "../CardProduct"
-import CategoriesFilter from "../Categories/Categories";
+import CategoriesFilter from "../Categories";
 
-import "./ProductList.css";
+import "./styles.scss";
 
 function ProductList({ products, categories, openProductModal }) {
   const [searchTerm, setSearchTerm] = useState();
