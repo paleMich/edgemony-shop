@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import { formatPrice } from "../../services/utils";
 
-import "./styles.css";
+import "./styles.scss";
 
 function CartProduct({ product, removeFromCart, setProductQuantity }) {
   const { image, title, price, quantity, id } = product;
@@ -13,20 +13,20 @@ function CartProduct({ product, removeFromCart, setProductQuantity }) {
       <div>
         <img className="cart-product__img-wrapper" src={image} alt={title} />
       </div>
-      <div className='cart-product__description'>
+      <section className='cart-product__description'>
         <h4>{title}</h4>
-        <div className="CartProduct__quantity">
+        <div>
           <button onClick={decrement} disabled={quantity === 1}>
             -
           </button>
           <span>{quantity}</span>
           <button onClick={increment}>+</button>
-          <span className="CartProduct__price">{formatPrice(price)}</span>
+          <span className="cart-product_price">{formatPrice(price)}</span>
         </div>
-        <button className="CartProduct__remove" onClick={remove}>
+        <button className="cart-product_remove" onClick={remove}>
           Remove
         </button>
-      </div>
+      </section>
     </div>
   );
 }

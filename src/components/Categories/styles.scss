@@ -1,7 +1,13 @@
 .Category-list{
   width: 400px;
-  margin-left: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  @media (min-width: 768px){
+    .Category-list{
+      margin-left: auto;
+    }
+  }
 }
+

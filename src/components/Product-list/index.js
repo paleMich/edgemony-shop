@@ -23,7 +23,7 @@ function ProductList({ products, categories, openProductModal }) {
     <div className="centerSection">
       <div className="section-filter">
         <SearchBar 
-          placeholder={'Search a product..'}
+          placeholder={`Search a product..`}        // <i className="fa fa-search" aria-hidden="true"></i>
           onSearch={setSearchTerm} 
         />
         <CategoriesFilter

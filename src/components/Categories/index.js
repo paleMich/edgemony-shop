@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import CategoryFilter from "../Category-filter";
 
-import "./styles.css";
+import "./styles.scss";
 
 function CategoriesFilter({
   categories,

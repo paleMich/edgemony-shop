@@ -6,31 +6,66 @@
 }
 
 .section-filter{
+  height: 80px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .Card-wrapper{
-  max-width: 1200px;
-  min-width: 300px;
+  max-width: 430px; 
   margin: 30px auto;
-  margin-bottom: 0px;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);   
-  grid-template-rows: auto;   
-  gap: 1em;
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
 }
+
+.Card-wrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.Card-wrapper::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-radius: 10px;
+  visibility: hidden;
+}
+.Card-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.Card-wrapper:hover .Card-wrapper::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+
 
 @media (min-width: 768px) and (max-width: 1024px) {
   html{
     font-size: 1.2rem;
   }
 
+  .section-filter{
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
   .Card-wrapper{
+    max-width: 1200px;
+    margin: 30px auto;
+    margin-bottom: 0px;
+    padding: 0;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);   
+    grid-template-rows: auto;   
+    gap: 1em;
+    justify-items: center;
+    align-items: center;
   }
   
 }
@@ -40,14 +75,30 @@
     font-size: 1.3rem;
   }
 
+  .section-filter{
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
   .Card-wrapper{
+    max-width: 1200px;
+    margin: 30px auto;
+    margin-bottom: 0px;
+    padding: 0;
+    display: grid; 
     grid-template-columns: repeat(4, 1fr);   
+    grid-template-rows: auto;   
     gap: 2em;  
+    justify-items: center;
+    align-items: center;
   }
 }
 
 
-// @mixin tablet{
+// @mixin mobile{
 //   @media (min-width: 576px) {
 //     @content;
 //   }

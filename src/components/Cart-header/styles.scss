@@ -6,14 +6,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
 
-.section-cart span{
-  margin: auto 10px;
+  > span{
+    margin: auto 10px;
+  }
 }
 
 .price{
   width: 100px;
+  margin-left: auto;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -24,11 +25,11 @@
   height: fit-content;
   cursor: pointer;
   position: relative;
-}
 
-.cart-icon i{
-  font-size: 1.2rem;
-  z-index: 1;
+  > i{
+    font-size: 1.2rem;
+    z-index: 1;
+  }
 }
 
 .items-num{

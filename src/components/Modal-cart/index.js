@@ -3,7 +3,7 @@ import CartProduct from "../Cart-product";
 import { formatPrice } from "../../services/utils";
 import Modal from "../Modal"
 
-import "./styles.css";
+import "./styles.scss";
 
 function ModalCart({
   products,
@@ -37,7 +37,10 @@ function ModalCart({
             <p className="ModalCart__content__empty">The cart is empty</p>
           )}
         </div>
-        <footer className='modal-cart__footer'>Total: {formatPrice(totalPrice)}</footer>
+        {totalPrice > 0
+          ? <footer className='modal-cart__footer'>Total: {formatPrice(totalPrice)}</footer>
+          : ''
+        }
       </div>
     </div>
   );
