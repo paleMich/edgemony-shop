@@ -26,9 +26,9 @@ const TitleProduct = styled.span`
   padding: 10px 5px;
   text-align: start;
   display: -webkit-box;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-line-clamp: 2;
-  max-height: 45px;
+  max-height: 50px;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

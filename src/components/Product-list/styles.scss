@@ -22,6 +22,7 @@
   -webkit-overflow-scrolling: touch;
   scroll-snap-points-x: repeat(300px);
   scroll-snap-type: mandatory;
+  cursor: grab;
 }
 
 .Card-wrapper::-webkit-scrollbar {
@@ -66,6 +67,7 @@
     gap: 1em;
     justify-items: center;
     align-items: center;
+    cursor: initial;
   }
   
 }
@@ -94,6 +96,7 @@
     gap: 2em;  
     justify-items: center;
     align-items: center;
+    cursor: initial;
   }
 }
 
