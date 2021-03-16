@@ -3,23 +3,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 
+
+import { fetchProducts, fetchCatogories } from "./services/api";
+import Header from "./components/Header";
 import Home from './pages/Home'
 import Product from './pages/Product'
-
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Loader from "./components/Loader";
-import ErrorBanner from "./components/Error";
-import ProductList from "./components/Product-list";
-import ModalBodySidebar from "./components/Modal-sidebar"
-import Cart from "./components/Cart";
-import ModalBodyCenter from "./components/Modal-center"
-import ProductDetails from "./components/Product-details";
-import Modal from "./components/Modal";
-import { fetchProducts, fetchCatogories } from "./services/api";
+import Page404 from './pages/Page404'
 
 const data = {
   title: "Edgemony Shop",
@@ -118,11 +110,14 @@ function App() {
           onCartClick={() => setCartOpen(true)}
         />
         <Switch>
-          <Route path='/'>
+          <Route exact path='/'>
             <Home />
           </Route>
-          <Route path='/Product'>
+          <Route path='/product/:productId'>
             <Product />
+          </Route>
+          <Route path='/page404'>
+            <Page404 />
           </Route>
         </Switch>
       </div>
