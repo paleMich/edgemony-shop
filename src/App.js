@@ -12,6 +12,8 @@ import Header from "./components/Header";
 import Home from './pages/Home'
 import Product from './pages/Product'
 import Page404 from './pages/Page404'
+import ModalBodySidebar from "./components/Modal-sidebar"
+import Cart from "./components/Cart";
 
 const data = {
   title: "Edgemony Shop",
@@ -50,34 +52,11 @@ function App() {
     }
   }, [modalIsOpen, isCartOpen]);
 
-  // API data logic
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [apiError, setApiError] = useState("");
-  const [retry, setRetry] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setApiError("");
-    Promise.all([fetchProducts(), fetchCatogories()])
-      .then(([products, categories]) => {
-        setProducts(products);
-        setCategories(categories);
-      })
-      .catch((err) => setApiError(err.message))
-      .finally(() => setIsLoading(false));
-  }, [retry]);
-
   // Cart Logic
+
   const [cart, setCart] = useState([]);
-  const cartProducts = cart.map((cartItem) => {
-    const { price, image, title, id } = products.find(
-      (p) => p.id === cartItem.id
-    );
-    return { price, image, title, id, quantity: cartItem.quantity };
-  });
-  const cartTotal = cartProducts.reduce(
+  
+  const cartTotal = cart.reduce(
     (total, product) => total + product.price * product.quantity,
     0
   );
@@ -106,15 +85,30 @@ function App() {
           title={data.title}
           cartTotal={cartTotal}
           cartSize={cart.length}
-          products={products}
           onCartClick={() => setCartOpen(true)}
         />
-        <Switch>
-          <Route exact path='/'>
+        {/* <ModalBodySidebar
+          isOpen={isCartOpen}
+          close={() => setCartOpen(false)}
+          title='Cart'
+        >
+          <Cart
+            // products={cartProducts}
+            totalPrice={cartTotal}
+            removeFromCart={removeFromCart}
+            setProductQuantity={setProductQuantity}
+          />
+        </ModalBodySidebar> */}
+
+        <Switch>             // legge la stringa che c'è nella url, in base a ciò (path) decide quale componente mostrare 
+          <Route exact path='/'>            // exact - dice che la stringa deve essere uguale alla url, altrimenti usa un sistema a cascata 
             <Home />
           </Route>
-          <Route path='/product/:productId'>
-            <Product />
+          <Route path='/product/:productId'>            // ':' cattura tutto quello che viene dopo lo '/', quindi dice alla url che questo è un parametro
+            <Product
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+              isInCart={isInCart} />
           </Route>
           <Route path='/page404'>
             <Page404 />

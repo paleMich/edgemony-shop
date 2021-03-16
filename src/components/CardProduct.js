@@ -1,4 +1,11 @@
 import styled from 'styled-components'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,6 +21,16 @@ const Wrapper = styled.div`
   @media (max-width: 768px) {
     margin: auto 8px;
   }
+
+  > a{
+    margin-bottom: 0px;
+    padding: 6px;
+    border-radius: 5px;
+    border: transparent;
+    color: aliceblue;
+    background-color: rgb(220, 141, 72);
+    text-decoration: none;
+    }
 `
 
 const ProductImg = styled.img`
@@ -34,21 +51,21 @@ const TitleProduct = styled.span`
   text-overflow: ellipsis;
 `
 
-const BtnDetails = styled.button`
-  margin-bottom: 0px;
-  padding: 6px;
-  border-radius: 5px;
-  border: transparent;
-  color: aliceblue;
-  background-color: rgb(220, 141, 72);
-`
+// const BtnDetails = styled.button`
+//   margin-bottom: 0px;
+//   padding: 6px;
+//   border-radius: 5px;
+//   border: transparent;
+//   color: aliceblue;
+//   background-color: rgb(220, 141, 72);
+// `
 
 function CardProduct({ product, openProductModal }) {
   return (
     <Wrapper>
       <ProductImg src={product.image} alt={product.title}></ProductImg>
       <TitleProduct>{product.title}</TitleProduct>
-      <BtnDetails onClick={openProductModal}>View details</BtnDetails>
+      <Link to={`/product/${product.id}`}>View Details</Link>
     </Wrapper>
   )
 }
