@@ -6,20 +6,17 @@ import {
   Link
 } from "react-router-dom";
 
-import Home from './pages/Home'
-import Product from './pages/Product'
-
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Loader from "./components/Loader";
-import ErrorBanner from "./components/Error";
-import ProductList from "./components/Product-list";
-import ModalBodySidebar from "./components/Modal-sidebar"
-import Cart from "./components/Cart";
-import ModalBodyCenter from "./components/Modal-center"
-import ProductDetails from "./components/Product-details";
-import Modal from "./components/Modal";
-import { fetchProducts, fetchCatogories } from "./services/api";
+import Header from "./../components/Header";
+import Hero from "./../components/Hero";
+import Loader from "./../components/Loader";
+import ErrorBanner from "./../components/Error";
+import ProductList from "./../components/Product-list";
+import ModalBodySidebar from "./../components/Modal-sidebar"
+import Cart from "./../components/Cart";
+import ModalBodyCenter from "./../components/Modal-center"
+import ProductDetails from "./../components/Product-details";
+import Modal from "./../components/Modal";
+import { fetchProducts, fetchCatogories } from "./../services/api";
 
 const data = {
   title: "Edgemony Shop",
@@ -30,7 +27,7 @@ const data = {
     "https://images.pexels.com/photos/4123897/pexels-photo-4123897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 };
 
-function App() {
+function Home() {
   // Modal logic
   const [productInModal, setProductInModal] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -107,27 +104,64 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="App">
-        <Header
-          logo={data.logo}
-          title={data.title}
-          cartTotal={cartTotal}
-          cartSize={cart.length}
-          products={products}
-          onCartClick={() => setCartOpen(true)}
+    <div className="Home">
+      <Header
+        logo={data.logo}
+        title={data.title}
+        cartTotal={cartTotal}
+        cartSize={cart.length}
+        products={products}
+        onCartClick={() => setCartOpen(true)}
+      />
+      <Hero
+        title={data.title}
+        description={data.description}
+        cover={data.cover}
+      />
+      <main>
+        {isLoading ? (
+          <Loader />
+        ) : apiError ? (
+          <ErrorBanner
+            message={apiError}
+            close={() => setApiError("")}
+            retry={() => setRetry(!retry)}
+          />
+        ) : (
+          <ProductList
+            products={products}
+            categories={categories}
+            openProductModal={openProductModal}
+          />
+        )}
+      </main>
+
+      <ModalBodySidebar
+        isOpen={isCartOpen}
+        close={() => setCartOpen(false)}
+        title='Cart'
+      >
+        <Cart
+          products={cartProducts}
+          totalPrice={cartTotal}
+          removeFromCart={removeFromCart}
+          setProductQuantity={setProductQuantity}
         />
-        <Switch>
-          <Route path='/'>
-            <Home />
-          </Route>
-          <Route path='/Product'>
-            <Product />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+      </ModalBodySidebar>
+
+      <ModalBodyCenter
+        isOpen={modalIsOpen}
+        close={closeModal}
+      >
+        <ProductDetails
+          content={productInModal}
+          inCart={isInCart(productInModal)}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+        />
+      </ModalBodyCenter>
+    </div>
   );
 }
 
-export default App;
+export default Home;
