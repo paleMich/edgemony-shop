@@ -40,3 +40,14 @@
 // }
 
 // export default Modal
+
+function Modal({ isOpen, close, children }) {
+  return (
+    <div className={`modal ${isOpen ? `modal--is-visible` : ""}`}>
+      <div className='overlay' onClick={close}></div >
+      {children} {/* children ? center : sidebar */}
+    </div>
+  )
+}
+
+export default Modal

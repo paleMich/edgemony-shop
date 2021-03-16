@@ -5,9 +5,10 @@ import Hero from "./components/Hero";
 import Loader from "./components/Loader";
 import ErrorBanner from "./components/Error";
 import ProductList from "./components/Product-list";
-import ProductModal from "./components/Modal/";
+import ModalBodySidebar from "./components/Modal-sidebar"
 import Cart from "./components/Cart";
-import Sidebar from "./components/Modal-sidebar"
+import ModalBodyCenter from "./components/Modal-center"
+import ProductDetails from "./components/Product-details";
 import { fetchProducts, fetchCatogories } from "./services/api";
 
 const data = {
@@ -127,28 +128,30 @@ function App() {
           />
         )}
       </main>
-      <Sidebar
+      <ModalBodySidebar
         isOpen={isCartOpen}
         close={() => setCartOpen(false)}
         title='Cart'
       >
-      <Cart
-        isOpen={isCartOpen}
-        close={() => setCartOpen(false)}
-        products={cartProducts}
-        totalPrice={cartTotal}
-        removeFromCart={removeFromCart}
-        setProductQuantity={setProductQuantity}
-      />
-      </Sidebar>
-      <ProductModal
+        <Cart
+          products={cartProducts}
+          totalPrice={cartTotal}
+          removeFromCart={removeFromCart}
+          setProductQuantity={setProductQuantity}
+        />
+      </ModalBodySidebar>
+
+      <ModalBodyCenter
         isOpen={modalIsOpen}
-        content={productInModal}
-        closeModal={closeModal}
-        inCart={isInCart(productInModal)}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-      />
+        close={closeModal}
+      >
+        <ProductDetails
+          content={productInModal}
+          inCart={isInCart(productInModal)}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+        />
+      </ModalBodyCenter>
     </div>
   );
 }

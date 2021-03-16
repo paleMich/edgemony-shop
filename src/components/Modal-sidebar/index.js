@@ -2,7 +2,7 @@ import { PropTypes } from "prop-types";
 
 import './styles.scss'
 
-function Sidebar({isOpen, close, title, children}) {
+function ModalBodySidebar({isOpen, close, title, children}) {
   return (
     <div className={`modal ${isOpen ? `modal--is-visible` : ""}`}>
       <div className='overlay' onClick={close}></div> 
@@ -19,9 +19,9 @@ function Sidebar({isOpen, close, title, children}) {
   )
 }
 
-Sidebar.propTypes = {
+ModalBodySidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
 }
 
-export default Sidebar
+export default ModalBodySidebar
