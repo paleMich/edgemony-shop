@@ -24,12 +24,13 @@ const Wrapper = styled.div`
 
   > a{
     margin-bottom: 0px;
-    padding: 6px;
+    padding: 5px;
     border-radius: 5px;
     border: transparent;
+    font-size: 0.85rem;
+    text-decoration: none;
     color: aliceblue;
     background-color: rgb(220, 141, 72);
-    text-decoration: none;
     }
 `
 

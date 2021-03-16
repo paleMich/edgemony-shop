@@ -10,11 +10,6 @@ import Hero from "./../components/Hero";
 import Loader from "./../components/Loader";
 import ErrorBanner from "./../components/Error";
 import ProductList from "./../components/Product-list";
-import ModalBodySidebar from "./../components/Modal-sidebar"
-import Cart from "./../components/Cart";
-import ModalBodyCenter from "./../components/Modal-center"
-// import ProductDetails from "./../components/Product-details";
-// import Modal from "./../components/Modal";
 import { fetchProducts, fetchCatogories } from "./../services/api";
 
 const data = {

@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from "react-router-dom";
 
 
@@ -12,7 +11,6 @@ import Header from "./components/Header";
 import Home from './pages/Home'
 import Product from './pages/Product'
 import Page404 from './pages/Page404'
-import ModalBodySidebar from "./components/Modal-sidebar"
 import Cart from "./components/Cart";
 
 const data = {
@@ -26,31 +24,31 @@ const data = {
 
 function App() {
   // Modal logic
-  const [productInModal, setProductInModal] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [isCartOpen, setCartOpen] = useState(false);
+  // const [productInModal, setProductInModal] = useState(null);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [isCartOpen, setCartOpen] = useState(false);
 
-  function openProductModal(product) {
-    setProductInModal(product);
-    setModalIsOpen(true);
-  }
+  // function openProductModal(product) {
+  //   setProductInModal(product);
+  //   setModalIsOpen(true);
+  // }
 
-  function closeModal() {
-    setModalIsOpen(false);
-    setTimeout(() => {
-      setProductInModal(null);
-    }, 500);
-  }
+  // function closeModal() {
+  //   setModalIsOpen(false);
+  //   setTimeout(() => {
+  //     setProductInModal(null);
+  //   }, 500);
+  // }
 
-  useEffect(() => {
-    if (modalIsOpen || isCartOpen) {
-      document.body.style.height = `100vh`;
-      document.body.style.overflow = `hidden`;
-    } else {
-      document.body.style.height = ``;
-      document.body.style.overflow = ``;
-    }
-  }, [modalIsOpen, isCartOpen]);
+  // useEffect(() => {
+  //   if (modalIsOpen || isCartOpen) {
+  //     document.body.style.height = `100vh`;
+  //     document.body.style.overflow = `hidden`;
+  //   } else {
+  //     document.body.style.height = ``;
+  //     document.body.style.overflow = ``;
+  //   }
+  // }, [modalIsOpen, isCartOpen]);
 
   // Cart Logic
 
@@ -60,15 +58,19 @@ function App() {
     (total, product) => total + product.price * product.quantity,
     0
   );
+
   function isInCart(product) {
     return product != null && cart.find((p) => p.id === product.id) != null;
-  }
-  function addToCart(productId) {
-    setCart([...cart, { id: productId, quantity: 1 }]);
-  }
+  };
+
+  function addToCart(product) {
+    setCart([...cart, { ...product, quantity: 1 }]);
+  };
+  
   function removeFromCart(productId) {
     setCart(cart.filter((product) => product.id !== productId));
-  }
+  };
+
   function setProductQuantity(productId, quantity) {
     setCart(
       cart.map((product) =>
@@ -85,30 +87,27 @@ function App() {
           title={data.title}
           cartTotal={cartTotal}
           cartSize={cart.length}
-          onCartClick={() => setCartOpen(true)}
+          // onCartClick={() => setCartOpen(true)}
         />
-        {/* <ModalBodySidebar
-          isOpen={isCartOpen}
-          close={() => setCartOpen(false)}
-          title='Cart'
-        >
-          <Cart
-            // products={cartProducts}
-            totalPrice={cartTotal}
-            removeFromCart={removeFromCart}
-            setProductQuantity={setProductQuantity}
-          />
-        </ModalBodySidebar> */}
 
-        <Switch>             // legge la stringa che c'è nella url, in base a ciò (path) decide quale componente mostrare 
-          <Route exact path='/'>            // exact - dice che la stringa deve essere uguale alla url, altrimenti usa un sistema a cascata 
+        <Switch>                                          // legge la stringa che c'è nella url, in base a ciò (path) decide quale componente mostrare 
+          <Route exact path='/'>                          // exact - dice che la stringa deve essere uguale alla url, altrimenti usa un sistema a cascata 
             <Home />
           </Route>
-          <Route path='/product/:productId'>            // ':' cattura tutto quello che viene dopo lo '/', quindi dice alla url che questo è un parametro
+          <Route path='/product/:productId'>              // ':' cattura tutto quello che viene dopo lo '/', quindi dice che nella url è presente un parametro
             <Product
               addToCart={addToCart}
               removeFromCart={removeFromCart}
-              isInCart={isInCart} />
+              isInCart={isInCart} 
+            />
+          </Route>
+          <Route path='/cart'>
+            <Cart 
+              products={cart}
+              totalPrice={cartTotal}
+              removeFromCart={removeFromCart}
+              setProductQuantity={setProductQuantity}
+            />
           </Route>
           <Route path='/page404'>
             <Page404 />
