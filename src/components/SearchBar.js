@@ -7,13 +7,15 @@ const Bar = styled.div`
   padding: 5px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-style: none;
-  border-radius: 3px;
+  border-radius: 20px;
   box-shadow: 0px 5px 7px -6px;
   background-color: rgb(239, 239, 239);
 `
 
 const Input = styled.input`
+  width: 100%;
   border: none;  
   background-color: transparent;
   outline: none;

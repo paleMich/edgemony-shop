@@ -8,7 +8,7 @@ import CategoriesFilter from "../Categories";
 import "./styles.scss";
 
 function ProductList({ products, categories, openProductModal }) {
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const termRegexp = new RegExp(searchTerm, "i");

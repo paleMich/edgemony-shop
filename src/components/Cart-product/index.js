@@ -9,7 +9,7 @@ function CartProduct({ product, removeFromCart, setProductQuantity }) {
   const decrement = () => setProductQuantity(id, quantity - 1);
   const remove = () => removeFromCart(id);
   return (
-    <div className="modal-cart__product">
+    <div className="cart__product">
       <div>
         <img className="cart-product__img-wrapper" src={image} alt={title} />
       </div>

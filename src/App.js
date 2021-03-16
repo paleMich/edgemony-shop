@@ -6,8 +6,8 @@ import Loader from "./components/Loader";
 import ErrorBanner from "./components/Error";
 import ProductList from "./components/Product-list";
 import ProductModal from "./components/Modal/";
-import CartModal from "./components/Modal-cart";
-// import Sidebar from "./components/Sidebar"
+import Cart from "./components/Cart";
+import Sidebar from "./components/Modal-sidebar"
 import { fetchProducts, fetchCatogories } from "./services/api";
 
 const data = {
@@ -127,14 +127,20 @@ function App() {
           />
         )}
       </main>
-      <CartModal
-        products={cartProducts}
+      <Sidebar
         isOpen={isCartOpen}
         close={() => setCartOpen(false)}
+        title='Cart'
+      >
+      <Cart
+        isOpen={isCartOpen}
+        close={() => setCartOpen(false)}
+        products={cartProducts}
         totalPrice={cartTotal}
         removeFromCart={removeFromCart}
         setProductQuantity={setProductQuantity}
       />
+      </Sidebar>
       <ProductModal
         isOpen={modalIsOpen}
         content={productInModal}
