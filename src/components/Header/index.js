@@ -1,19 +1,23 @@
 import PropTypes from "prop-types";
+import {
+  Link,
+} from "react-router-dom";
 
 import Cart from "../Header-cart";
 import "./styles.scss";
 
-function Header({ logo, title, cartTotal, cartSize, products, onCartClick }) {
+function Header({ logo, title, cartTotal, cartSize, onCartClick }) {
   return (
     <header className="Header">
-      <img src={logo} alt={title} />
+      <Link to='/'>
+        <img src={logo} alt={title} />
+      </Link>
       <Cart
         cartTotal={cartTotal}
         cartSize={cartSize}
-        products={products}
         onCartClick={onCartClick}
       />
-    </header>
+    </header >
   );
 }
 
@@ -22,7 +26,6 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
   cartTotal: PropTypes.number.isRequired,
   cartSize: PropTypes.number.isRequired,
-  products: PropTypes.array.isRequired,
   onCartClick: PropTypes.func.isRequired,
 };
 

@@ -50,4 +50,4 @@ function Modal({ isOpen, close, children }) {
   )
 }
 
-export default Modal
+export default Modal;
