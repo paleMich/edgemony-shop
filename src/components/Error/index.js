@@ -10,7 +10,7 @@ function ErrorBanner({ message, retry, close }) {
         Retry
       </span>
       <p className="Error__close" onClick={() => close()}>
-        x
+        close
       </p>
     </div>
   );
