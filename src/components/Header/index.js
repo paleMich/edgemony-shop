@@ -6,7 +6,7 @@ import {
 import Cart from "../Header-cart";
 import "./styles.scss";
 
-function Header({ logo, title, cartTotal, cartSize, onCartClick }) {
+function Header({ logo, title, cartTotal, cartSize }) {
   return (
     <header className="Header">
       <Link to='/'>
@@ -15,7 +15,6 @@ function Header({ logo, title, cartTotal, cartSize, onCartClick }) {
       <Cart
         cartTotal={cartTotal}
         cartSize={cartSize}
-        onCartClick={onCartClick}
       />
     </header >
   );
@@ -26,7 +25,6 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
   cartTotal: PropTypes.number.isRequired,
   cartSize: PropTypes.number.isRequired,
-  onCartClick: PropTypes.func.isRequired,
 };
 
 export default Header;

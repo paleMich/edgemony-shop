@@ -24,7 +24,7 @@ const Input = styled.input`
 const SearchBar = ({ placeholder, onSearch, ...props }) => {
   return (
     <Bar>
-      <i class="fa fa-search" aria-hidden="true"></i>
+      <i className="fa fa-search" aria-hidden="true"></i>
       <Input
         type='search'
         onChange={(event) => onSearch(event.target.value)}

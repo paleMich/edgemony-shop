@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
-import Hero from "./../components/Hero";
-import Loader from "./../components/Loader";
-import ErrorBanner from "./../components/Error";
-import ProductList from "./../components/Product-list";
-import { fetchProducts, fetchCatogories } from "./../services/api";
+import Hero from "../../components/Hero";
+import Loader from "../../components/Loader";
+import ErrorBanner from "../../components/Error";
+import ProductList from "../../components/Product-list";
+import { fetchProducts, fetchCatogories } from "../../services/api";
 
 const data = {
   title: "Edgemony Shop",
@@ -23,31 +23,31 @@ const data = {
 
 function Home() {
   // Modal logic
-  const [productInModal, setProductInModal] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [isCartOpen, setCartOpen] = useState(false);
+  // const [productInModal, setProductInModal] = useState(null);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [isCartOpen, setCartOpen] = useState(false);
 
-  function openProductModal(product) {
-    setProductInModal(product);
-    setModalIsOpen(true);
-  }
+  // function openProductModal(product) {
+  //   setProductInModal(product);
+  //   setModalIsOpen(true);
+  // }
 
-  function closeModal() {
-    setModalIsOpen(false);
-    setTimeout(() => {
-      setProductInModal(null);
-    }, 500);
-  }
+  // function closeModal() {
+  //   setModalIsOpen(false);
+  //   setTimeout(() => {
+  //     setProductInModal(null);
+  //   }, 500);
+  // }
 
-  useEffect(() => {
-    if (modalIsOpen || isCartOpen) {
-      document.body.style.height = `100vh`;
-      document.body.style.overflow = `hidden`;
-    } else {
-      document.body.style.height = ``;
-      document.body.style.overflow = ``;
-    }
-  }, [modalIsOpen, isCartOpen]);
+  // useEffect(() => {
+  //   if (modalIsOpen || isCartOpen) {
+  //     document.body.style.height = `100vh`;
+  //     document.body.style.overflow = `hidden`;
+  //   } else {
+  //     document.body.style.height = ``;
+  //     document.body.style.overflow = ``;
+  //   }
+  // }, [modalIsOpen, isCartOpen]);
 
   // API data logic
   const [products, setProducts] = useState([]);
@@ -66,9 +66,7 @@ function Home() {
       })
       .catch((err) => setApiError(err.message))
       .finally(() => setIsLoading(false));
-  }, [retry]);
-
-  
+  }, [retry]);  
 
   return (
     <div className="Home">
@@ -90,7 +88,7 @@ function Home() {
           <ProductList
             products={products}
             categories={categories}
-            openProductModal={openProductModal}
+            // openProductModal={openProductModal}
           />
         )}
       </main>

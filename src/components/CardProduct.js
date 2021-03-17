@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useParams,
 } from "react-router-dom";
 
 const Wrapper = styled.div`
@@ -61,7 +57,7 @@ const TitleProduct = styled.span`
 //   background-color: rgb(220, 141, 72);
 // `
 
-function CardProduct({ product, openProductModal }) {
+function CardProduct({ product }) {
   return (
     <Wrapper>
       <ProductImg src={product.image} alt={product.title}></ProductImg>

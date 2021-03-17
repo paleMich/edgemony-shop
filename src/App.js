@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,12 +6,12 @@ import {
 } from "react-router-dom";
 
 
-import { fetchProducts, fetchCatogories } from "./services/api";
+// import { fetchProducts, fetchCatogories } from "./services/api";
 import Header from "./components/Header";
-import Home from './pages/Home'
-import Product from './pages/Product'
+import Home from './pages/Home/Home'
+import Product from './pages/Product/Product'
 import Page404 from './pages/Page404'
-import Cart from "./components/Cart";
+import Cart from "./pages/Cart";
 
 const data = {
   title: "Edgemony Shop",
@@ -23,35 +23,7 @@ const data = {
 };
 
 function App() {
-  // Modal logic
-  // const [productInModal, setProductInModal] = useState(null);
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const [isCartOpen, setCartOpen] = useState(false);
-
-  // function openProductModal(product) {
-  //   setProductInModal(product);
-  //   setModalIsOpen(true);
-  // }
-
-  // function closeModal() {
-  //   setModalIsOpen(false);
-  //   setTimeout(() => {
-  //     setProductInModal(null);
-  //   }, 500);
-  // }
-
-  // useEffect(() => {
-  //   if (modalIsOpen || isCartOpen) {
-  //     document.body.style.height = `100vh`;
-  //     document.body.style.overflow = `hidden`;
-  //   } else {
-  //     document.body.style.height = ``;
-  //     document.body.style.overflow = ``;
-  //   }
-  // }, [modalIsOpen, isCartOpen]);
-
-  // Cart Logic
-
+  
   const [cart, setCart] = useState([]);
   
   const cartTotal = cart.reduce(
@@ -87,18 +59,17 @@ function App() {
           title={data.title}
           cartTotal={cartTotal}
           cartSize={cart.length}
-          // onCartClick={() => setCartOpen(true)}
         />
 
-        <Switch>                                          // legge la stringa che c'è nella url, in base a ciò (path) decide quale componente mostrare 
-          <Route exact path='/'>                          // exact - dice che la stringa deve essere uguale alla url, altrimenti usa un sistema a cascata 
+        <Switch>                                          {/*  legge la stringa che c'è nella url, in base a ciò (path) decide quale componente mostrare  */}
+          <Route exact path='/'>                          {/* exact - dice che la stringa deve essere uguale alla url, altrimenti usa un sistema a cascata  */}
             <Home />
           </Route>
-          <Route path='/product/:productId'>              // ':' cattura tutto quello che viene dopo lo '/', quindi dice che nella url è presente un parametro
+          <Route path='/product/:productId'>              {/*  ':' cattura tutto quello che viene dopo lo '/', quindi dice che nella url è presente un parametro */}
             <Product
               addToCart={addToCart}
               removeFromCart={removeFromCart}
-              isInCart={isInCart} 
+              inCart={isInCart} 
             />
           </Route>
           <Route path='/cart'>
@@ -109,7 +80,7 @@ function App() {
               setProductQuantity={setProductQuantity}
             />
           </Route>
-          <Route path='/page404'>
+          <Route path='*'>
             <Page404 />
           </Route>
         </Switch>

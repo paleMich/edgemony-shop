@@ -1,12 +1,15 @@
-import CartProduct from '../components/Cart-product'
+import { PropTypes } from "prop-types";
 
+import CartProduct from '../../components/Cart-product';
 import { formatPrice } from "../../services/utils";
+
+import './styles.scss';
 
 function Cart({ 
   products,
   totalPrice,
   removeFromCart,
-  setProductQuantity, }) {
+  setProductQuantity }) {
   return (
     <>
       {products.length > 0

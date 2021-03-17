@@ -4,22 +4,14 @@ import "./styles.scss";
 
 function ErrorBanner({ message, retry, close }) {
   return (
-    <div className="ErrorBanner">
-      <span className="ErrorBanner__message">{message}</span>
-      <button
-        type="button"
-        className="ErrorBanner__retry"
-        onClick={() => retry()}
-      >
+    <div className="Error">
+      <p>{message}</p>
+      <span onClick={() => retry()}>
         Retry
-      </button>
-      <button
-        type="button"
-        className="ErrorBanner__close"
-        onClick={() => close()}
-      >
-        X
-      </button>
+      </span>
+      <p className="Error__close" onClick={() => close()}>
+        x
+      </p>
     </div>
   );
 }

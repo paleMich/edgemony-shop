@@ -1,9 +1,9 @@
 .cart__product{
   width: max-content;
-  margin: 20px auto;
+  margin: 90px auto;
+  border-top: 1px solid black;
   display: flex;
   flex-direction: row;
-  // justify-content: space-between;
   align-items: center;
   z-index: 15;
   
@@ -73,5 +73,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  p{
+    color: rgb(10, 176, 10);
   }
 }

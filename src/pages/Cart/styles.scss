@@ -4,7 +4,7 @@
   margin-top: auto;
   padding-right: 60px;
   height: 25px;
-  position: relative;
+  position: fixed;
   bottom: 0;
   text-align: end; 
   font-size: 1.1rem;
@@ -14,5 +14,5 @@
 
 .cart__empty {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 100px;
 }

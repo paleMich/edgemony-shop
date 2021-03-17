@@ -7,7 +7,7 @@ import CategoriesFilter from "../Categories";
 
 import "./styles.scss";
 
-function ProductList({ products, categories, openProductModal }) {
+function ProductList({ products, categories /* openProductModal */ }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -37,7 +37,7 @@ function ProductList({ products, categories, openProductModal }) {
           <Card
             product={product}
             key={product.id}
-            openProductModal={() => openProductModal(product)}
+            // openProductModal={() => openProductModal(product)}
           />
         ))}
       </div>
@@ -48,7 +48,7 @@ function ProductList({ products, categories, openProductModal }) {
 ProductList.propTypes = {
   products: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
-  openProductModal: PropTypes.func.isRequired,
+  // openProductModal: PropTypes.func.isRequired,
 };
 
 export default ProductList;

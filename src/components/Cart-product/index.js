@@ -15,17 +15,18 @@ function CartProduct({ product, removeFromCart, setProductQuantity }) {
       </div>
       <section className='cart-product__description'>
         <h4>{title}</h4>
+        <span className="cart-product_price">{formatPrice(price)}</span>
         <div>
+          <p>Disponibilità immediata</p>
           <button onClick={decrement} disabled={quantity === 1}>
             -
           </button>
           <span>{quantity}</span>
           <button onClick={increment}>+</button>
-          <span className="cart-product_price">{formatPrice(price)}</span>
+          <button className="cart-product_remove" onClick={remove}>
+            Remove
+          </button>
         </div>
-        <button className="cart-product_remove" onClick={remove}>
-          Remove
-        </button>
       </section>
     </div>
   );
