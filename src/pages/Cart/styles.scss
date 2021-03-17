@@ -1,18 +1,41 @@
-.cart__footer{
-  border-top: 1px solid black;
-  width: 100%;
-  margin-top: auto;
-  padding-right: 60px;
-  height: 25px;
-  position: fixed;
-  bottom: 0;
-  text-align: end; 
-  font-size: 1.1rem;
-  font-weight: 600;
-  background-color: rgb(252, 233, 205);
+.ShoppingCart{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(237, 240, 240);
+}
+
+.sectionCart{
+  margin-top: 100px;
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  text-align: left;
+  
+  > span{
+    position: relative;
+    top: 25px;
+    left: 25px;
+    font-size: 1.3rem;
+    font-weight: 580;
+  }
+
 }
 
 .cart__empty {
   text-align: center;
   margin-top: 100px;
+}
+
+.cart__subtotal{
+  border-top: 1px solid black;
+  width: 80%;
+  margin-top: auto;
+  margin: 0 auto;
+  padding-top: 5px;
+  height: 25px;
+  text-align: end; 
+  font-size: 1.1rem;
+  font-weight: 500;
 }

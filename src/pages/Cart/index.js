@@ -5,30 +5,36 @@ import { formatPrice } from "../../services/utils";
 
 import './styles.scss';
 
-function Cart({ 
+function Cart({
   products,
   totalPrice,
   removeFromCart,
   setProductQuantity }) {
   return (
     <>
-      {products.length > 0
-        ? (
-          products.map((product) => (
-            <CartProduct
-              key={product.id}
-              product={product}
-              removeFromCart={removeFromCart}
-              setProductQuantity={setProductQuantity}
-            />
-          ))
-        ) : (
-          <p className="cart__empty">The cart is empty</p>
-        )}
-      {totalPrice > 0
-        ? <footer className='cart__footer'>Total: {formatPrice(totalPrice)}</footer>
-        : ''
-      }
+      <div className="ShoppingCart">
+        <div className="sectionCart">
+          <span className="">Subtotal</span>
+          {products.length > 0
+            ? (
+              products.map((product) => (
+                <CartProduct
+                  key={product.id}
+                  product={product}
+                  removeFromCart={removeFromCart}
+                  setProductQuantity={setProductQuantity}
+                />
+              ))
+            ) : (
+              <p className="cart__empty">The cart is empty</p>
+            )}
+
+          {totalPrice > 0
+            ? <footer className='cart__subtotal'>Subtotal ({products.length} item): {formatPrice(totalPrice)}</footer>
+            : ''
+          }
+        </div>
+      </div>
     </>
   );
 }

@@ -10,7 +10,7 @@ import {
 import Header from "./components/Header";
 import Home from './pages/Home/Home'
 import Product from './pages/Product/Product'
-import Page404 from './pages/Page404'
+import PageNotFnd from './pages/Page404'
 import Cart from "./pages/Cart";
 
 const data = {
@@ -80,8 +80,8 @@ function App() {
               setProductQuantity={setProductQuantity}
             />
           </Route>
-          <Route path='*'>
-            <Page404 />
+          <Route path='/*'>
+            <PageNotFnd />
           </Route>
         </Switch>
       </div>
