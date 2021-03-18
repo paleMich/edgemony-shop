@@ -49,6 +49,8 @@ function App() {
   };
 
   async function removeFromCart(productId) {
+    setIsLoading(true);
+    setApiError("");
     try {
       const cartObj = await deletItemFromCart(cartId, productId)
       setCart(cartObj.items);
@@ -79,11 +81,13 @@ function App() {
           cartId = cartObj.id
         } catch (error) {
           console.error('Error about Api call cart' + error.message)
+          setApiError(error.message)
         }
       }
       fetchCartInEffect()
+      setIsLoading(false);
     }
-  }, [])
+  }, [retry])
 
   return (
     <Router>
@@ -107,12 +111,22 @@ function App() {
             />
           </Route>
           <Route path='/cart'>
-            <Cart
-              products={cart}
-              totalPrice={cartTotal}
-              removeFromCart={removeFromCart}
-              setProductQuantity={setProductQuantity}
-            />
+            {isLoading ? (
+              <Loader />
+            ) : apiError ? (
+              <ErrorBanner
+                message={apiError}
+                close={() => setApiError("")}
+                retry={() => setRetry(!retry)}
+              />
+            ) : (
+              <Cart
+                products={cart}
+                totalPrice={cartTotal}
+                removeFromCart={removeFromCart}
+                setProductQuantity={setProductQuantity}
+              />
+            )}
           </Route>
           <Route path='/*'>
             <PageNotFnd />

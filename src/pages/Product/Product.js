@@ -51,7 +51,6 @@ function Product({ addToCart, removeFromCart, inCart }) {
       ) : (
         <div className='pageProduct'>
           <div className='sectionProduct'>
-
             <div className="Product">
               <span className="img1-prd">img 1</span>
               <span className="img2-prd">img 2</span>
