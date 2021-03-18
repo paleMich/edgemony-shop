@@ -32,17 +32,24 @@ function Product({ addToCart, removeFromCart, inCart }) {
 
   return product ? (
     <>
-      <div className="Product">
-        <div className='img-modal'>
-          <img src={product.image} alt={product.title} />
-        </div>
-        <h1>{product.title}</h1>
-        <p>{product.description}</p>
-        <div className='footer-modal'>
-          <button type="button" className="add-cart" onClick={toggleCart}>
-            {inCart(product) ? "Remove" : "Add to Cart"}
-          </button>
-          <span>Price: {product.price}€</span>
+      <div className='pageProduct'>
+        <div className='sectionProduct'>
+          <div className="Product">
+            <span className="img1-prd">img 1</span>
+            <span className="img2-prd">img 2</span>
+            <span className="img3-prd">img 3</span>
+            <div className='img-prd'>
+              <img src={product.image} alt={product.title} />
+            </div>
+            <h1>{product.title}</h1>
+            <p>{product.description}</p>
+            <div className='footer-prd'>
+              <button type="button" className="add-cart" onClick={toggleCart}>
+                {inCart(product) ? "Remove" : "Add to Cart"}
+              </button>
+              <span>Price: {product.price}€</span>
+            </div>
+          </div>
         </div>
       </div>
     </>
