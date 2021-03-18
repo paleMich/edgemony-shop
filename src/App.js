@@ -76,6 +76,8 @@ function App() {
     if (cartIdFromLocalStorage) {
       async function fetchCartInEffect() {
         try {
+          setIsLoading(true);
+          setApiError("");
           const cartObj = await fetchCart(cartIdFromLocalStorage)
           setCart(cartObj.items)
           cartId = cartObj.id
