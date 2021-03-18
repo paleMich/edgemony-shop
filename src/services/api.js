@@ -21,7 +21,6 @@ export async function fetchCatogories() {
   return callAPI("products/categories");
 }
 
-
 export async function postItemToCart(cartId, productId, quantity) {
   return callAPI(`carts/${cartId}/items`, {
     method: 'POST',
@@ -33,4 +32,8 @@ export async function deletItemFromCart(cartId, productId) {
   return callAPI(`carts/${cartId}/items/${productId}`, {
     method: 'DELETE',
   });
+}
+
+export async function fetchCart(cartId) {
+  return callAPI(`carts/${cartId}`);
 }

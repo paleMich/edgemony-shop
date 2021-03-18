@@ -25,33 +25,6 @@ const data = {
 let cache;
 
 function Home() {
-  // Modal logic
-  // const [productInModal, setProductInModal] = useState(null);
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const [isCartOpen, setCartOpen] = useState(false);
-
-  // function openProductModal(product) {
-  //   setProductInModal(product);
-  //   setModalIsOpen(true);
-  // }
-
-  // function closeModal() {
-  //   setModalIsOpen(false);
-  //   setTimeout(() => {
-  //     setProductInModal(null);
-  //   }, 500);
-  // }
-
-  // useEffect(() => {
-  //   if (modalIsOpen || isCartOpen) {
-  //     document.body.style.height = `100vh`;
-  //     document.body.style.overflow = `hidden`;
-  //   } else {
-  //     document.body.style.height = ``;
-  //     document.body.style.overflow = ``;
-  //   }
-  // }, [modalIsOpen, isCartOpen]);
-
   // API data logic
   const [products, setProducts] = useState(cache ? cache.products : []);
   const [categories, setCategories] = useState(cache ? cache.products : []);
@@ -95,7 +68,6 @@ function Home() {
           <ProductList
             products={products}
             categories={categories}
-            // openProductModal={openProductModal}
           />
         )}
       </main>

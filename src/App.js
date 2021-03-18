@@ -5,13 +5,15 @@ import {
   Route,
 } from "react-router-dom";
 
+import { postItemToCart, deletItemFromCart, fetchCart } from "./services/api";
 
-import { postItemToCart, deletItemFromCart } from "./services/api";
 import Header from "./components/Header";
 import Home from './pages/Home/Home'
 import Product from './pages/Product/Product'
 import PageNotFnd from './pages/Page404'
 import Cart from "./pages/Cart";
+import Loader from "./components/Loader";
+import ErrorBanner from "./components/Error";
 
 const data = {
   title: "Edgemony Shop",
@@ -25,9 +27,9 @@ const data = {
 let cartId;
 
 function App() {
-  
+
   const [cart, setCart] = useState([]);
-  
+
   const cartTotal = cart.reduce(
     (total, product) => total + product.price * product.quantity,
     0
@@ -39,17 +41,17 @@ function App() {
 
   async function addToCart(product) {
     try {
-      const newCartObj = await postItemToCart(cartId, product.id, 1)
-      setCart(newCartObj.items);
+      const cartObj = await postItemToCart(cartId, product.id, 1)
+      setCart(cartObj.items);
     } catch (error) {
       console.error('Error Api call of postItemToCart' + error.message)
     }
   };
-  
+
   async function removeFromCart(productId) {
     try {
-      const newCartObj = await deletItemFromCart(cartId, productId)
-      setCart(newCartObj.items);
+      const cartObj = await deletItemFromCart(cartId, productId)
+      setCart(cartObj.items);
     } catch (error) {
       console.error('Error Api call of postItemToCart' + error.message)
     }
@@ -57,21 +59,29 @@ function App() {
 
   async function setProductQuantity(productId, quantity) {
     try {
-      const newCartObj = await postItemToCart(cartId, productId, quantity)
-      setCart(newCartObj.items);
+      const cartObj = await postItemToCart(cartId, productId, quantity)
+      setCart(cartObj.items);
     } catch (error) {
       console.error('Error Api call of postItemToCart' + error.message)
     }
   }
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
+  const [retry, setRetry] = useState(false);
 
   useEffect(() => {
-    const cartFromLocalStorage = localStorage.getItem('edgemony-cart')
-    try {
-      const cartObj = JSON.parse(cartFromLocalStorage)
-      setCart(cartObj.items)
-      cartId = cartObj.id
-    } catch (error) {
-      console.error('Error about localStorage' + error.message)
+    const cartIdFromLocalStorage = localStorage.getItem('edgemony-cart-id')
+    if (cartIdFromLocalStorage) {
+      async function fetchCartInEffect() {
+        try {
+          const cartObj = await fetchCart(cartIdFromLocalStorage)
+          setCart(cartObj.items)
+          cartId = cartObj.id
+        } catch (error) {
+          console.error('Error about Api call cart' + error.message)
+        }
+      }
+      fetchCartInEffect()
     }
   }, [])
 
@@ -93,11 +103,11 @@ function App() {
             <Product
               addToCart={addToCart}
               removeFromCart={removeFromCart}
-              inCart={isInCart} 
+              inCart={isInCart}
             />
           </Route>
           <Route path='/cart'>
-            <Cart 
+            <Cart
               products={cart}
               totalPrice={cartTotal}
               removeFromCart={removeFromCart}
