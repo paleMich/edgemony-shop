@@ -45,7 +45,7 @@ function ProductList({ products, categories /* openProductModal */ }) {
   }
 
 
-  const termRegexp = new RegExp(searchTerm, "i");
+  const termRegexp = new RegExp(searchTerm, "i");                      /* serve a trovare dei match tra la stringa  */
   const filteredProducts = products.filter(
     (product) =>
       product.title.search(termRegexp) !== -1 &&

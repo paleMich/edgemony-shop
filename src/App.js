@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 
-// import { fetchProducts, fetchCatogories } from "./services/api";
+import { postItemToCart, deletItemFromCart } from "./services/api";
 import Header from "./components/Header";
 import Home from './pages/Home/Home'
 import Product from './pages/Product/Product'
@@ -22,6 +22,8 @@ const data = {
     "https://images.pexels.com/photos/4123897/pexels-photo-4123897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 };
 
+let cartId;
+
 function App() {
   
   const [cart, setCart] = useState([]);
@@ -35,21 +37,43 @@ function App() {
     return product != null && cart.find((p) => p.id === product.id) != null;
   };
 
-  function addToCart(product) {
-    setCart([...cart, { ...product, quantity: 1 }]);
+  async function addToCart(product) {
+    try {
+      const newCartObj = await postItemToCart(cartId, product.id, 1)
+      setCart(newCartObj.items);
+    } catch (error) {
+      console.error('Error Api call of postItemToCart' + error.message)
+    }
   };
   
-  function removeFromCart(productId) {
-    setCart(cart.filter((product) => product.id !== productId));
+  async function removeFromCart(productId) {
+    try {
+      const newCartObj = await deletItemFromCart(cartId, productId)
+      setCart(newCartObj.items);
+    } catch (error) {
+      console.error('Error Api call of postItemToCart' + error.message)
+    }
   };
 
-  function setProductQuantity(productId, quantity) {
-    setCart(
-      cart.map((product) =>
-        product.id === productId ? { ...product, quantity } : product
-      )
-    );
+  async function setProductQuantity(productId, quantity) {
+    try {
+      const newCartObj = await postItemToCart(cartId, productId, quantity)
+      setCart(newCartObj.items);
+    } catch (error) {
+      console.error('Error Api call of postItemToCart' + error.message)
+    }
   }
+
+  useEffect(() => {
+    const cartFromLocalStorage = localStorage.getItem('edgemony-cart')
+    try {
+      const cartObj = JSON.parse(cartFromLocalStorage)
+      setCart(cartObj.items)
+      cartId = cartObj.id
+    } catch (error) {
+      console.error('Error about localStorage' + error.message)
+    }
+  }, [])
 
   return (
     <Router>
